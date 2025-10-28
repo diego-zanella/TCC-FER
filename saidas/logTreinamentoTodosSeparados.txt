@@ -1,0 +1,640 @@
+2025-10-10 13:46:37,094 - INFO - Logging initialized. Log file at: saidas\execution_log_20251010_134637.txt
+2025-10-10 13:46:37,094 - INFO - Device: cuda
+2025-10-10 13:46:37,096 - INFO - GPU: NVIDIA GeForce RTX 5070 Ti
+2025-10-10 13:46:37,096 - INFO - 
+============================================================
+Loading Dataset: RAF-DB
+============================================================
+2025-10-10 13:46:37,118 - INFO - 
+============================================================
+Loading Dataset: ExpW
+============================================================
+2025-10-10 13:46:37,119 - INFO - Loading images from ExpW dataset at: ./expw/Expw-F
+2025-10-10 13:46:37,122 - INFO -   Found 3671 images for 'angry'.
+2025-10-10 13:46:37,126 - INFO -   Found 3995 images for 'disgust'.
+2025-10-10 13:46:37,127 - INFO -   Found 1088 images for 'fear'.
+2025-10-10 13:46:37,154 - INFO -   Found 30537 images for 'happy'.
+2025-10-10 13:46:37,164 - INFO -   Found 10559 images for 'sad'.
+2025-10-10 13:46:37,170 - INFO -   Found 7060 images for 'surprise'.
+2025-10-10 13:46:37,201 - INFO -   Found 34883 images for 'neutral'.
+2025-10-10 13:46:37,202 - INFO - Total images loaded from ExpW: 91793
+2025-10-10 13:46:37,228 - INFO - ExpW split into 73434 training images and 18359 testing images.
+2025-10-10 13:46:37,230 - INFO - 
+============================================================
+Loading Dataset: FER2013
+============================================================
+2025-10-10 13:46:37,284 - INFO - 
+================================================================================
+Processing Dataset for Training: RAF-DB
+================================================================================
+2025-10-10 13:46:37,480 - INFO - Class distribution plot saved to: saidas\RAF-DB_dist_original.png
+2025-10-10 13:46:37,480 - INFO - Balanceando dados com RandomOversampler...
+2025-10-10 13:46:37,481 - INFO - Distribuição de classes original: [(np.int64(0), 705), (np.int64(1), 717), (np.int64(2), 281), (np.int64(3), 4772), (np.int64(4), 1982), (np.int64(5), 1290), (np.int64(6), 2524)]
+2025-10-10 13:46:37,489 - INFO - Distribuição de classes reamostrada: [(np.int64(0), 4772), (np.int64(1), 4772), (np.int64(2), 4772), (np.int64(3), 4772), (np.int64(4), 4772), (np.int64(5), 4772), (np.int64(6), 4772)]
+2025-10-10 13:46:37,633 - INFO - Class distribution plot saved to: saidas\RAF-DB_dist_balanced.png
+2025-10-10 13:46:37,633 - INFO - 
+--- Processing densenet121 on RAF-DB with Batch Size: 96 ---
+2025-10-10 13:46:37,778 - INFO - No pre-trained model found. Starting training...
+2025-10-10 13:48:05,382 - INFO - Epoch 1/100 | Loss: 0.9770 | Train Acc: 63.63% | Val Acc: 55.54%
+2025-10-10 13:49:32,569 - INFO - Epoch 2/100 | Loss: 0.6231 | Train Acc: 77.13% | Val Acc: 77.84%
+2025-10-10 13:50:59,805 - INFO - Epoch 3/100 | Loss: 0.4872 | Train Acc: 82.45% | Val Acc: 73.92%
+2025-10-10 13:52:27,044 - INFO - Epoch 4/100 | Loss: 0.4009 | Train Acc: 85.53% | Val Acc: 83.44%
+2025-10-10 13:53:54,378 - INFO - Epoch 5/100 | Loss: 0.3394 | Train Acc: 87.79% | Val Acc: 82.14%
+2025-10-10 13:55:21,571 - INFO - Epoch 6/100 | Loss: 0.2984 | Train Acc: 89.51% | Val Acc: 81.29%
+2025-10-10 13:56:48,857 - INFO - Epoch 7/100 | Loss: 0.2684 | Train Acc: 90.37% | Val Acc: 82.50%
+2025-10-10 13:58:16,126 - INFO - Epoch 8/100 | Loss: 0.1460 | Train Acc: 95.04% | Val Acc: 85.04%
+2025-10-10 13:59:43,340 - INFO - Epoch 9/100 | Loss: 0.1235 | Train Acc: 95.76% | Val Acc: 85.59%
+2025-10-10 14:01:10,625 - INFO - Epoch 10/100 | Loss: 0.1165 | Train Acc: 95.93% | Val Acc: 84.55%
+2025-10-10 14:02:37,802 - INFO - Epoch 11/100 | Loss: 0.1134 | Train Acc: 96.09% | Val Acc: 83.02%
+2025-10-10 14:04:05,021 - INFO - Epoch 12/100 | Loss: 0.1054 | Train Acc: 96.36% | Val Acc: 84.49%
+2025-10-10 14:05:32,214 - INFO - Epoch 13/100 | Loss: 0.0604 | Train Acc: 97.96% | Val Acc: 86.70%
+2025-10-10 14:06:59,545 - INFO - Epoch 14/100 | Loss: 0.0525 | Train Acc: 98.23% | Val Acc: 86.34%
+2025-10-10 14:08:26,832 - INFO - Epoch 15/100 | Loss: 0.0502 | Train Acc: 98.31% | Val Acc: 86.11%
+2025-10-10 14:09:54,081 - INFO - Epoch 16/100 | Loss: 0.0487 | Train Acc: 98.33% | Val Acc: 85.33%
+2025-10-10 14:11:21,295 - INFO - Epoch 17/100 | Loss: 0.0346 | Train Acc: 98.87% | Val Acc: 86.18%
+2025-10-10 14:12:48,419 - INFO - Epoch 18/100 | Loss: 0.0314 | Train Acc: 98.98% | Val Acc: 86.08%
+2025-10-10 14:12:48,419 - INFO - Early stopping triggered at epoch 18
+2025-10-10 14:12:48,421 - INFO - Training complete. Saving model to saidas\saved_models\RAF-DB_densenet121.pth
+2025-10-10 14:12:48,471 - INFO - Evaluating densenet121...
+2025-10-10 14:13:01,895 - INFO - Using Test-Time Augmentation...
+2025-10-10 14:13:32,481 - INFO - densenet121 | Accuracy: 0.8608 | Accuracy (TTA): 0.8703
+2025-10-10 14:13:32,485 - INFO - 
+              precision    recall  f1-score   support
+
+       Angry      0.844     0.802     0.823       162
+     Disgust      0.664     0.594     0.627       160
+        Fear      0.717     0.581     0.642        74
+       Happy      0.935     0.952     0.943      1185
+         Sad      0.832     0.858     0.844       478
+    Surprise      0.841     0.903     0.871       329
+     Neutral      0.862     0.834     0.848       680
+
+    accuracy                          0.870      3068
+   macro avg      0.813     0.789     0.800      3068
+weighted avg      0.868     0.870     0.869      3068
+
+2025-10-10 14:13:32,659 - INFO - Confusion matrix saved to: saidas\RAF-DB_densenet121_cm_TTA.png
+2025-10-10 14:13:32,709 - INFO - 
+--- Processing resnet50 on RAF-DB with Batch Size: 144 ---
+2025-10-10 14:13:32,885 - INFO - No pre-trained model found. Starting training...
+2025-10-10 14:14:52,750 - INFO - Epoch 1/100 | Loss: 0.9723 | Train Acc: 64.09% | Val Acc: 67.93%
+2025-10-10 14:16:12,505 - INFO - Epoch 2/100 | Loss: 0.5686 | Train Acc: 79.57% | Val Acc: 76.60%
+2025-10-10 14:17:32,309 - INFO - Epoch 3/100 | Loss: 0.4250 | Train Acc: 84.97% | Val Acc: 75.26%
+2025-10-10 14:18:52,100 - INFO - Epoch 4/100 | Loss: 0.3438 | Train Acc: 87.67% | Val Acc: 81.62%
+2025-10-10 14:20:11,928 - INFO - Epoch 5/100 | Loss: 0.2930 | Train Acc: 89.61% | Val Acc: 81.10%
+2025-10-10 14:21:31,709 - INFO - Epoch 6/100 | Loss: 0.2466 | Train Acc: 91.24% | Val Acc: 81.68%
+2025-10-10 14:22:51,509 - INFO - Epoch 7/100 | Loss: 0.2116 | Train Acc: 92.61% | Val Acc: 83.47%
+2025-10-10 14:24:11,237 - INFO - Epoch 8/100 | Loss: 0.1986 | Train Acc: 92.97% | Val Acc: 80.77%
+2025-10-10 14:25:31,019 - INFO - Epoch 9/100 | Loss: 0.1793 | Train Acc: 93.89% | Val Acc: 82.53%
+2025-10-10 14:26:50,960 - INFO - Epoch 10/100 | Loss: 0.1540 | Train Acc: 94.60% | Val Acc: 81.45%
+2025-10-10 14:28:10,732 - INFO - Epoch 11/100 | Loss: 0.0867 | Train Acc: 97.06% | Val Acc: 84.22%
+2025-10-10 14:29:30,475 - INFO - Epoch 12/100 | Loss: 0.0690 | Train Acc: 97.65% | Val Acc: 85.10%
+2025-10-10 14:30:50,304 - INFO - Epoch 13/100 | Loss: 0.0670 | Train Acc: 97.75% | Val Acc: 84.52%
+2025-10-10 14:32:09,990 - INFO - Epoch 14/100 | Loss: 0.0632 | Train Acc: 97.83% | Val Acc: 83.87%
+2025-10-10 14:33:29,759 - INFO - Epoch 15/100 | Loss: 0.0625 | Train Acc: 97.86% | Val Acc: 84.06%
+2025-10-10 14:34:49,574 - INFO - Epoch 16/100 | Loss: 0.0405 | Train Acc: 98.63% | Val Acc: 86.18%
+2025-10-10 14:36:09,366 - INFO - Epoch 17/100 | Loss: 0.0326 | Train Acc: 98.94% | Val Acc: 86.11%
+2025-10-10 14:37:29,087 - INFO - Epoch 18/100 | Loss: 0.0297 | Train Acc: 98.99% | Val Acc: 85.20%
+2025-10-10 14:38:49,044 - INFO - Epoch 19/100 | Loss: 0.0278 | Train Acc: 99.04% | Val Acc: 85.79%
+2025-10-10 14:40:08,901 - INFO - Epoch 20/100 | Loss: 0.0224 | Train Acc: 99.27% | Val Acc: 86.34%
+2025-10-10 14:41:28,779 - INFO - Epoch 21/100 | Loss: 0.0185 | Train Acc: 99.39% | Val Acc: 86.44%
+2025-10-10 14:42:48,633 - INFO - Epoch 22/100 | Loss: 0.0164 | Train Acc: 99.43% | Val Acc: 86.28%
+2025-10-10 14:44:08,581 - INFO - Epoch 23/100 | Loss: 0.0161 | Train Acc: 99.43% | Val Acc: 86.51%
+2025-10-10 14:45:28,355 - INFO - Epoch 24/100 | Loss: 0.0171 | Train Acc: 99.44% | Val Acc: 86.11%
+2025-10-10 14:46:48,233 - INFO - Epoch 25/100 | Loss: 0.0163 | Train Acc: 99.47% | Val Acc: 86.60%
+2025-10-10 14:48:08,052 - INFO - Epoch 26/100 | Loss: 0.0153 | Train Acc: 99.48% | Val Acc: 86.25%
+2025-10-10 14:49:27,809 - INFO - Epoch 27/100 | Loss: 0.0167 | Train Acc: 99.45% | Val Acc: 85.66%
+2025-10-10 14:50:47,763 - INFO - Epoch 28/100 | Loss: 0.0141 | Train Acc: 99.56% | Val Acc: 86.02%
+2025-10-10 14:52:07,596 - INFO - Epoch 29/100 | Loss: 0.0139 | Train Acc: 99.55% | Val Acc: 86.80%
+2025-10-10 14:53:27,349 - INFO - Epoch 30/100 | Loss: 0.0105 | Train Acc: 99.67% | Val Acc: 86.77%
+2025-10-10 14:54:47,141 - INFO - Epoch 31/100 | Loss: 0.0109 | Train Acc: 99.63% | Val Acc: 86.70%
+2025-10-10 14:56:07,113 - INFO - Epoch 32/100 | Loss: 0.0110 | Train Acc: 99.67% | Val Acc: 86.67%
+2025-10-10 14:57:26,904 - INFO - Epoch 33/100 | Loss: 0.0104 | Train Acc: 99.67% | Val Acc: 86.67%
+2025-10-10 14:58:46,853 - INFO - Epoch 34/100 | Loss: 0.0093 | Train Acc: 99.69% | Val Acc: 86.83%
+2025-10-10 15:00:06,739 - INFO - Epoch 35/100 | Loss: 0.0078 | Train Acc: 99.74% | Val Acc: 86.67%
+2025-10-10 15:01:26,680 - INFO - Epoch 36/100 | Loss: 0.0086 | Train Acc: 99.71% | Val Acc: 86.54%
+2025-10-10 15:02:46,714 - INFO - Epoch 37/100 | Loss: 0.0085 | Train Acc: 99.72% | Val Acc: 86.77%
+2025-10-10 15:04:06,613 - INFO - Epoch 38/100 | Loss: 0.0084 | Train Acc: 99.72% | Val Acc: 86.73%
+2025-10-10 15:05:26,477 - INFO - Epoch 39/100 | Loss: 0.0085 | Train Acc: 99.70% | Val Acc: 86.93%
+2025-10-10 15:06:46,232 - INFO - Epoch 40/100 | Loss: 0.0066 | Train Acc: 99.77% | Val Acc: 86.93%
+2025-10-10 15:08:06,110 - INFO - Epoch 41/100 | Loss: 0.0068 | Train Acc: 99.79% | Val Acc: 86.80%
+2025-10-10 15:09:25,945 - INFO - Epoch 42/100 | Loss: 0.0070 | Train Acc: 99.75% | Val Acc: 86.99%
+2025-10-10 15:10:45,803 - INFO - Epoch 43/100 | Loss: 0.0067 | Train Acc: 99.79% | Val Acc: 86.64%
+2025-10-10 15:12:05,680 - INFO - Epoch 44/100 | Loss: 0.0074 | Train Acc: 99.75% | Val Acc: 86.64%
+2025-10-10 15:13:25,514 - INFO - Epoch 45/100 | Loss: 0.0073 | Train Acc: 99.77% | Val Acc: 86.51%
+2025-10-10 15:14:45,477 - INFO - Epoch 46/100 | Loss: 0.0079 | Train Acc: 99.75% | Val Acc: 86.86%
+2025-10-10 15:16:05,316 - INFO - Epoch 47/100 | Loss: 0.0074 | Train Acc: 99.79% | Val Acc: 86.77%
+2025-10-10 15:16:05,316 - INFO - Early stopping triggered at epoch 47
+2025-10-10 15:16:05,317 - INFO - Training complete. Saving model to saidas\saved_models\RAF-DB_resnet50.pth
+2025-10-10 15:16:05,382 - INFO - Evaluating resnet50...
+2025-10-10 15:16:18,743 - INFO - Using Test-Time Augmentation...
+2025-10-10 15:16:48,628 - INFO - resnet50 | Accuracy: 0.8677 | Accuracy (TTA): 0.8722
+2025-10-10 15:16:48,632 - INFO - 
+              precision    recall  f1-score   support
+
+       Angry      0.829     0.778     0.803       162
+     Disgust      0.744     0.562     0.641       160
+        Fear      0.932     0.554     0.695        74
+       Happy      0.938     0.947     0.942      1185
+         Sad      0.836     0.854     0.845       478
+    Surprise      0.852     0.860     0.856       329
+     Neutral      0.824     0.891     0.857       680
+
+    accuracy                          0.872      3068
+   macro avg      0.851     0.778     0.805      3068
+weighted avg      0.872     0.872     0.870      3068
+
+2025-10-10 15:16:48,805 - INFO - Confusion matrix saved to: saidas\RAF-DB_resnet50_cm_TTA.png
+2025-10-10 15:16:48,847 - INFO - 
+--- Processing efficientnet_b0 on RAF-DB with Batch Size: 144 ---
+2025-10-10 15:16:48,874 - INFO - Loading pretrained weights from Hugging Face hub (timm/efficientnet_b0.ra_in1k)
+2025-10-10 15:16:49,206 - INFO - [timm/efficientnet_b0.ra_in1k] Safe alternative available for 'pytorch_model.bin' (as 'model.safetensors'). Loading weights using safetensors.
+2025-10-10 15:16:49,220 - INFO - Missing keys (classifier.weight, classifier.bias) discovered while loading pretrained weights. This is expected if model is being adapted.
+2025-10-10 15:16:49,231 - INFO - No pre-trained model found. Starting training...
+2025-10-10 15:17:47,500 - INFO - Epoch 1/100 | Loss: 0.9717 | Train Acc: 66.94% | Val Acc: 70.21%
+2025-10-10 15:18:45,548 - INFO - Epoch 2/100 | Loss: 0.3811 | Train Acc: 86.62% | Val Acc: 78.23%
+2025-10-10 15:19:43,619 - INFO - Epoch 3/100 | Loss: 0.2512 | Train Acc: 91.28% | Val Acc: 81.58%
+2025-10-10 15:20:41,648 - INFO - Epoch 4/100 | Loss: 0.2000 | Train Acc: 93.07% | Val Acc: 80.67%
+2025-10-10 15:21:39,740 - INFO - Epoch 5/100 | Loss: 0.1539 | Train Acc: 94.56% | Val Acc: 82.14%
+2025-10-10 15:22:37,793 - INFO - Epoch 6/100 | Loss: 0.1392 | Train Acc: 95.22% | Val Acc: 81.65%
+2025-10-10 15:23:35,888 - INFO - Epoch 7/100 | Loss: 0.1273 | Train Acc: 95.67% | Val Acc: 81.55%
+2025-10-10 15:24:34,032 - INFO - Epoch 8/100 | Loss: 0.1118 | Train Acc: 96.11% | Val Acc: 82.79%
+2025-10-10 15:25:32,066 - INFO - Epoch 9/100 | Loss: 0.1039 | Train Acc: 96.49% | Val Acc: 81.36%
+2025-10-10 15:26:30,166 - INFO - Epoch 10/100 | Loss: 0.0925 | Train Acc: 96.90% | Val Acc: 83.60%
+2025-10-10 15:27:28,289 - INFO - Epoch 11/100 | Loss: 0.0922 | Train Acc: 96.86% | Val Acc: 82.66%
+2025-10-10 15:28:26,389 - INFO - Epoch 12/100 | Loss: 0.0854 | Train Acc: 96.97% | Val Acc: 82.56%
+2025-10-10 15:29:24,430 - INFO - Epoch 13/100 | Loss: 0.0798 | Train Acc: 97.31% | Val Acc: 81.94%
+2025-10-10 15:30:22,611 - INFO - Epoch 14/100 | Loss: 0.0333 | Train Acc: 98.92% | Val Acc: 85.46%
+2025-10-10 15:31:20,661 - INFO - Epoch 15/100 | Loss: 0.0235 | Train Acc: 99.22% | Val Acc: 85.27%
+2025-10-10 15:32:18,716 - INFO - Epoch 16/100 | Loss: 0.0190 | Train Acc: 99.32% | Val Acc: 85.59%
+2025-10-10 15:33:16,724 - INFO - Epoch 17/100 | Loss: 0.0210 | Train Acc: 99.30% | Val Acc: 84.88%
+2025-10-10 15:34:14,838 - INFO - Epoch 18/100 | Loss: 0.0238 | Train Acc: 99.19% | Val Acc: 83.74%
+2025-10-10 15:35:12,932 - INFO - Epoch 19/100 | Loss: 0.0290 | Train Acc: 99.02% | Val Acc: 84.03%
+2025-10-10 15:36:11,050 - INFO - Epoch 20/100 | Loss: 0.0159 | Train Acc: 99.46% | Val Acc: 85.07%
+2025-10-10 15:37:09,112 - INFO - Epoch 21/100 | Loss: 0.0132 | Train Acc: 99.55% | Val Acc: 85.17%
+2025-10-10 15:37:09,113 - INFO - Early stopping triggered at epoch 21
+2025-10-10 15:37:09,114 - INFO - Training complete. Saving model to saidas\saved_models\RAF-DB_efficientnet_b0.pth
+2025-10-10 15:37:09,141 - INFO - Evaluating efficientnet_b0...
+2025-10-10 15:37:21,541 - INFO - Using Test-Time Augmentation...
+2025-10-10 15:37:48,756 - INFO - efficientnet_b0 | Accuracy: 0.8517 | Accuracy (TTA): 0.8592
+2025-10-10 15:37:48,760 - INFO - 
+              precision    recall  f1-score   support
+
+       Angry      0.804     0.809     0.806       162
+     Disgust      0.683     0.525     0.594       160
+        Fear      0.755     0.500     0.602        74
+       Happy      0.945     0.941     0.943      1185
+         Sad      0.798     0.879     0.837       478
+    Surprise      0.834     0.857     0.846       329
+     Neutral      0.823     0.834     0.828       680
+
+    accuracy                          0.859      3068
+   macro avg      0.806     0.763     0.779      3068
+weighted avg      0.858     0.859     0.857      3068
+
+2025-10-10 15:37:48,935 - INFO - Confusion matrix saved to: saidas\RAF-DB_efficientnet_b0_cm_TTA.png
+2025-10-10 15:37:49,055 - INFO - 
+================================================================================
+Processing Dataset for Training: ExpW
+================================================================================
+2025-10-10 15:37:49,197 - INFO - Class distribution plot saved to: saidas\ExpW_dist_original.png
+2025-10-10 15:37:49,198 - INFO - Balanceando dados com RandomOversampler...
+2025-10-10 15:37:49,202 - INFO - Distribuição de classes original: [(np.int64(0), 2937), (np.int64(1), 3196), (np.int64(2), 870), (np.int64(3), 24430), (np.int64(4), 8447), (np.int64(5), 5648), (np.int64(6), 27906)]
+2025-10-10 15:37:49,246 - INFO - Distribuição de classes reamostrada: [(np.int64(0), 27906), (np.int64(1), 27906), (np.int64(2), 27906), (np.int64(3), 27906), (np.int64(4), 27906), (np.int64(5), 27906), (np.int64(6), 27906)]
+2025-10-10 15:37:49,419 - INFO - Class distribution plot saved to: saidas\ExpW_dist_balanced.png
+2025-10-10 15:37:49,419 - INFO - 
+--- Processing densenet121 on ExpW with Batch Size: 96 ---
+2025-10-10 15:37:49,510 - INFO - No pre-trained model found. Starting training...
+2025-10-10 15:44:26,971 - INFO - Epoch 1/100 | Loss: 1.3283 | Train Acc: 47.92% | Val Acc: 54.84%
+2025-10-10 15:51:04,491 - INFO - Epoch 2/100 | Loss: 1.0913 | Train Acc: 57.91% | Val Acc: 60.14%
+2025-10-10 15:57:44,932 - INFO - Epoch 3/100 | Loss: 0.9400 | Train Acc: 64.02% | Val Acc: 61.38%
+2025-10-10 16:04:24,309 - INFO - Epoch 4/100 | Loss: 0.8292 | Train Acc: 68.44% | Val Acc: 65.01%
+2025-10-10 16:11:03,475 - INFO - Epoch 5/100 | Loss: 0.7400 | Train Acc: 72.04% | Val Acc: 64.21%
+2025-10-10 16:17:42,121 - INFO - Epoch 6/100 | Loss: 0.6582 | Train Acc: 75.27% | Val Acc: 59.14%
+2025-10-10 16:24:21,140 - INFO - Epoch 7/100 | Loss: 0.5964 | Train Acc: 77.55% | Val Acc: 64.12%
+2025-10-10 16:31:00,126 - INFO - Epoch 8/100 | Loss: 0.4484 | Train Acc: 83.21% | Val Acc: 66.10%
+2025-10-10 16:37:38,891 - INFO - Epoch 9/100 | Loss: 0.3978 | Train Acc: 85.12% | Val Acc: 68.55%
+2025-10-10 16:44:18,188 - INFO - Epoch 10/100 | Loss: 0.3680 | Train Acc: 86.22% | Val Acc: 65.12%
+2025-10-10 16:50:57,168 - INFO - Epoch 11/100 | Loss: 0.3425 | Train Acc: 87.22% | Val Acc: 66.80%
+2025-10-10 16:57:36,017 - INFO - Epoch 12/100 | Loss: 0.3220 | Train Acc: 88.03% | Val Acc: 67.05%
+2025-10-10 17:04:14,906 - INFO - Epoch 13/100 | Loss: 0.2569 | Train Acc: 90.41% | Val Acc: 68.65%
+2025-10-10 17:10:53,683 - INFO - Epoch 14/100 | Loss: 0.2351 | Train Acc: 91.19% | Val Acc: 69.13%
+2025-10-10 17:17:32,527 - INFO - Epoch 15/100 | Loss: 0.2224 | Train Acc: 91.67% | Val Acc: 69.39%
+2025-10-10 17:24:11,168 - INFO - Epoch 16/100 | Loss: 0.2138 | Train Acc: 92.07% | Val Acc: 69.52%
+2025-10-10 17:30:48,310 - INFO - Epoch 17/100 | Loss: 0.2039 | Train Acc: 92.40% | Val Acc: 70.42%
+2025-10-10 17:37:26,798 - INFO - Epoch 18/100 | Loss: 0.1977 | Train Acc: 92.66% | Val Acc: 69.29%
+2025-10-10 17:44:06,803 - INFO - Epoch 19/100 | Loss: 0.1875 | Train Acc: 92.99% | Val Acc: 68.94%
+2025-10-10 17:50:46,537 - INFO - Epoch 20/100 | Loss: 0.1818 | Train Acc: 93.29% | Val Acc: 70.84%
+2025-10-10 17:57:26,106 - INFO - Epoch 21/100 | Loss: 0.1780 | Train Acc: 93.41% | Val Acc: 70.15%
+2025-10-10 18:04:08,708 - INFO - Epoch 22/100 | Loss: 0.1702 | Train Acc: 93.74% | Val Acc: 69.00%
+2025-10-10 18:10:49,030 - INFO - Epoch 23/100 | Loss: 0.1655 | Train Acc: 93.87% | Val Acc: 70.24%
+2025-10-10 18:17:29,087 - INFO - Epoch 24/100 | Loss: 0.1371 | Train Acc: 94.94% | Val Acc: 70.23%
+2025-10-10 18:24:08,035 - INFO - Epoch 25/100 | Loss: 0.1289 | Train Acc: 95.24% | Val Acc: 70.50%
+2025-10-10 18:24:08,035 - INFO - Early stopping triggered at epoch 25
+2025-10-10 18:24:08,037 - INFO - Training complete. Saving model to saidas\saved_models\ExpW_densenet121.pth
+2025-10-10 18:24:08,086 - INFO - Evaluating densenet121...
+2025-10-10 18:24:31,102 - INFO - Using Test-Time Augmentation...
+2025-10-10 18:26:38,594 - INFO - densenet121 | Accuracy: 0.7050 | Accuracy (TTA): 0.7114
+2025-10-10 18:26:38,603 - INFO - 
+              precision    recall  f1-score   support
+
+       Angry      0.574     0.443     0.500       734
+     Disgust      0.323     0.144     0.199       799
+        Fear      0.365     0.142     0.205       218
+       Happy      0.853     0.833     0.843      6107
+         Sad      0.563     0.477     0.516      2112
+    Surprise      0.594     0.591     0.592      1412
+     Neutral      0.691     0.811     0.746      6977
+
+    accuracy                          0.711     18359
+   macro avg      0.566     0.492     0.514     18359
+weighted avg      0.698     0.711     0.700     18359
+
+2025-10-10 18:26:38,783 - INFO - Confusion matrix saved to: saidas\ExpW_densenet121_cm_TTA.png
+2025-10-10 18:26:38,830 - INFO - 
+--- Processing resnet50 on ExpW with Batch Size: 144 ---
+2025-10-10 18:26:39,007 - INFO - No pre-trained model found. Starting training...
+2025-10-10 18:32:33,957 - INFO - Epoch 1/100 | Loss: 1.2817 | Train Acc: 49.86% | Val Acc: 60.99%
+2025-10-10 18:38:28,945 - INFO - Epoch 2/100 | Loss: 1.0354 | Train Acc: 60.26% | Val Acc: 61.62%
+2025-10-10 18:44:24,202 - INFO - Epoch 3/100 | Loss: 0.8835 | Train Acc: 66.35% | Val Acc: 63.59%
+2025-10-10 18:50:21,158 - INFO - Epoch 4/100 | Loss: 0.7620 | Train Acc: 71.26% | Val Acc: 60.29%
+2025-10-10 18:56:17,954 - INFO - Epoch 5/100 | Loss: 0.6601 | Train Acc: 75.25% | Val Acc: 63.34%
+2025-10-10 19:02:15,104 - INFO - Epoch 6/100 | Loss: 0.5752 | Train Acc: 78.52% | Val Acc: 57.47%
+2025-10-10 19:08:12,167 - INFO - Epoch 7/100 | Loss: 0.4168 | Train Acc: 84.49% | Val Acc: 65.53%
+2025-10-10 19:14:08,917 - INFO - Epoch 8/100 | Loss: 0.3594 | Train Acc: 86.63% | Val Acc: 66.89%
+2025-10-10 19:20:04,945 - INFO - Epoch 9/100 | Loss: 0.3254 | Train Acc: 87.86% | Val Acc: 67.49%
+2025-10-10 19:26:00,772 - INFO - Epoch 10/100 | Loss: 0.2963 | Train Acc: 89.03% | Val Acc: 67.95%
+2025-10-10 19:31:56,852 - INFO - Epoch 11/100 | Loss: 0.2746 | Train Acc: 89.83% | Val Acc: 66.23%
+2025-10-10 19:37:52,475 - INFO - Epoch 12/100 | Loss: 0.2534 | Train Acc: 90.62% | Val Acc: 68.02%
+2025-10-10 19:43:48,060 - INFO - Epoch 13/100 | Loss: 0.2359 | Train Acc: 91.33% | Val Acc: 68.42%
+2025-10-10 19:49:43,773 - INFO - Epoch 14/100 | Loss: 0.2221 | Train Acc: 91.85% | Val Acc: 68.47%
+2025-10-10 19:55:39,299 - INFO - Epoch 15/100 | Loss: 0.2083 | Train Acc: 92.37% | Val Acc: 69.17%
+2025-10-10 20:01:34,481 - INFO - Epoch 16/100 | Loss: 0.1969 | Train Acc: 92.75% | Val Acc: 67.63%
+2025-10-10 20:07:30,008 - INFO - Epoch 17/100 | Loss: 0.1888 | Train Acc: 93.07% | Val Acc: 69.24%
+2025-10-10 20:13:25,149 - INFO - Epoch 18/100 | Loss: 0.1779 | Train Acc: 93.49% | Val Acc: 68.97%
+2025-10-10 20:19:21,316 - INFO - Epoch 19/100 | Loss: 0.1694 | Train Acc: 93.76% | Val Acc: 68.69%
+2025-10-10 20:25:17,135 - INFO - Epoch 20/100 | Loss: 0.1625 | Train Acc: 94.04% | Val Acc: 68.95%
+2025-10-10 20:31:12,962 - INFO - Epoch 21/100 | Loss: 0.1169 | Train Acc: 95.79% | Val Acc: 70.44%
+2025-10-10 20:37:08,365 - INFO - Epoch 22/100 | Loss: 0.1060 | Train Acc: 96.11% | Val Acc: 70.47%
+2025-10-10 20:43:03,677 - INFO - Epoch 23/100 | Loss: 0.0996 | Train Acc: 96.43% | Val Acc: 69.94%
+2025-10-10 20:48:59,092 - INFO - Epoch 24/100 | Loss: 0.0948 | Train Acc: 96.61% | Val Acc: 70.18%
+2025-10-10 20:54:54,623 - INFO - Epoch 25/100 | Loss: 0.0902 | Train Acc: 96.74% | Val Acc: 70.39%
+2025-10-10 21:00:50,309 - INFO - Epoch 26/100 | Loss: 0.0714 | Train Acc: 97.50% | Val Acc: 70.29%
+2025-10-10 21:06:45,714 - INFO - Epoch 27/100 | Loss: 0.0650 | Train Acc: 97.69% | Val Acc: 70.62%
+2025-10-10 21:12:41,230 - INFO - Epoch 28/100 | Loss: 0.0626 | Train Acc: 97.78% | Val Acc: 70.69%
+2025-10-10 21:18:36,788 - INFO - Epoch 29/100 | Loss: 0.0598 | Train Acc: 97.90% | Val Acc: 70.78%
+2025-10-10 21:24:32,345 - INFO - Epoch 30/100 | Loss: 0.0573 | Train Acc: 97.97% | Val Acc: 70.58%
+2025-10-10 21:30:27,977 - INFO - Epoch 31/100 | Loss: 0.0551 | Train Acc: 98.05% | Val Acc: 70.76%
+2025-10-10 21:36:23,191 - INFO - Epoch 32/100 | Loss: 0.0529 | Train Acc: 98.16% | Val Acc: 70.72%
+2025-10-10 21:42:18,574 - INFO - Epoch 33/100 | Loss: 0.0465 | Train Acc: 98.37% | Val Acc: 70.95%
+2025-10-10 21:48:38,151 - INFO - Epoch 34/100 | Loss: 0.0434 | Train Acc: 98.48% | Val Acc: 70.89%
+2025-10-10 21:54:33,278 - INFO - Epoch 35/100 | Loss: 0.0422 | Train Acc: 98.55% | Val Acc: 70.73%
+2025-10-10 22:00:28,016 - INFO - Epoch 36/100 | Loss: 0.0408 | Train Acc: 98.56% | Val Acc: 70.68%
+2025-10-10 22:06:20,191 - INFO - Epoch 37/100 | Loss: 0.0378 | Train Acc: 98.67% | Val Acc: 71.02%
+2025-10-10 22:12:15,049 - INFO - Epoch 38/100 | Loss: 0.0357 | Train Acc: 98.77% | Val Acc: 70.85%
+2025-10-10 22:18:09,828 - INFO - Epoch 39/100 | Loss: 0.0355 | Train Acc: 98.77% | Val Acc: 70.86%
+2025-10-10 22:24:04,864 - INFO - Epoch 40/100 | Loss: 0.0335 | Train Acc: 98.84% | Val Acc: 70.67%
+2025-10-10 22:29:59,504 - INFO - Epoch 41/100 | Loss: 0.0333 | Train Acc: 98.84% | Val Acc: 71.16%
+2025-10-10 22:35:54,308 - INFO - Epoch 42/100 | Loss: 0.0326 | Train Acc: 98.87% | Val Acc: 70.84%
+2025-10-10 22:41:49,172 - INFO - Epoch 43/100 | Loss: 0.0317 | Train Acc: 98.91% | Val Acc: 71.10%
+2025-10-10 22:47:44,039 - INFO - Epoch 44/100 | Loss: 0.0308 | Train Acc: 98.95% | Val Acc: 71.02%
+2025-10-10 22:53:37,707 - INFO - Epoch 45/100 | Loss: 0.0307 | Train Acc: 98.97% | Val Acc: 71.11%
+2025-10-10 22:59:56,696 - INFO - Epoch 46/100 | Loss: 0.0303 | Train Acc: 98.94% | Val Acc: 71.22%
+2025-10-10 23:05:52,129 - INFO - Epoch 47/100 | Loss: 0.0306 | Train Acc: 98.95% | Val Acc: 71.14%
+2025-10-10 23:11:46,776 - INFO - Epoch 48/100 | Loss: 0.0304 | Train Acc: 98.97% | Val Acc: 71.11%
+2025-10-10 23:17:40,622 - INFO - Epoch 49/100 | Loss: 0.0304 | Train Acc: 98.98% | Val Acc: 71.06%
+2025-10-10 23:23:32,840 - INFO - Epoch 50/100 | Loss: 0.0289 | Train Acc: 99.00% | Val Acc: 71.11%
+2025-10-10 23:29:28,330 - INFO - Epoch 51/100 | Loss: 0.0292 | Train Acc: 98.99% | Val Acc: 71.06%
+2025-10-10 23:29:28,331 - INFO - Early stopping triggered at epoch 51
+2025-10-10 23:29:28,332 - INFO - Training complete. Saving model to saidas\saved_models\ExpW_resnet50.pth
+2025-10-10 23:29:28,410 - INFO - Evaluating resnet50...
+2025-10-10 23:29:51,123 - INFO - Using Test-Time Augmentation...
+2025-10-10 23:32:31,569 - INFO - resnet50 | Accuracy: 0.7106 | Accuracy (TTA): 0.7171
+2025-10-10 23:32:31,579 - INFO - 
+              precision    recall  f1-score   support
+
+       Angry      0.598     0.417     0.491       734
+     Disgust      0.429     0.114     0.180       799
+        Fear      0.373     0.101     0.159       218
+       Happy      0.824     0.845     0.834      6107
+         Sad      0.640     0.438     0.520      2112
+    Surprise      0.627     0.556     0.590      1412
+     Neutral      0.682     0.842     0.754      6977
+
+    accuracy                          0.717     18359
+   macro avg      0.596     0.473     0.504     18359
+weighted avg      0.702     0.717     0.698     18359
+
+2025-10-10 23:32:31,994 - INFO - Confusion matrix saved to: saidas\ExpW_resnet50_cm_TTA.png
+2025-10-10 23:32:32,042 - INFO - 
+--- Processing efficientnet_b0 on ExpW with Batch Size: 144 ---
+2025-10-10 23:32:32,079 - INFO - Loading pretrained weights from Hugging Face hub (timm/efficientnet_b0.ra_in1k)
+2025-10-10 23:32:32,418 - INFO - [timm/efficientnet_b0.ra_in1k] Safe alternative available for 'pytorch_model.bin' (as 'model.safetensors'). Loading weights using safetensors.
+2025-10-10 23:32:32,439 - INFO - Missing keys (classifier.weight, classifier.bias) discovered while loading pretrained weights. This is expected if model is being adapted.
+2025-10-10 23:32:32,449 - INFO - No pre-trained model found. Starting training...
+2025-10-10 23:36:22,895 - INFO - Epoch 1/100 | Loss: 1.1672 | Train Acc: 55.47% | Val Acc: 61.42%
+2025-10-10 23:40:12,596 - INFO - Epoch 2/100 | Loss: 0.7668 | Train Acc: 71.28% | Val Acc: 59.78%
+2025-10-10 23:44:00,627 - INFO - Epoch 3/100 | Loss: 0.5823 | Train Acc: 78.33% | Val Acc: 65.35%
+2025-10-10 23:47:53,993 - INFO - Epoch 4/100 | Loss: 0.4629 | Train Acc: 82.81% | Val Acc: 68.28%
+2025-10-10 23:51:45,172 - INFO - Epoch 5/100 | Loss: 0.3902 | Train Acc: 85.53% | Val Acc: 67.87%
+2025-10-10 23:55:35,637 - INFO - Epoch 6/100 | Loss: 0.3381 | Train Acc: 87.57% | Val Acc: 67.30%
+2025-10-10 23:59:24,641 - INFO - Epoch 7/100 | Loss: 0.3022 | Train Acc: 88.93% | Val Acc: 66.18%
+2025-10-11 00:03:14,599 - INFO - Epoch 8/100 | Loss: 0.1892 | Train Acc: 93.02% | Val Acc: 69.05%
+2025-10-11 00:07:05,239 - INFO - Epoch 9/100 | Loss: 0.1629 | Train Acc: 93.94% | Val Acc: 69.58%
+2025-10-11 00:10:55,439 - INFO - Epoch 10/100 | Loss: 0.1476 | Train Acc: 94.55% | Val Acc: 69.79%
+2025-10-11 00:14:46,006 - INFO - Epoch 11/100 | Loss: 0.1343 | Train Acc: 95.04% | Val Acc: 70.00%
+2025-10-11 00:18:39,726 - INFO - Epoch 12/100 | Loss: 0.1235 | Train Acc: 95.48% | Val Acc: 69.87%
+2025-10-11 00:22:29,968 - INFO - Epoch 13/100 | Loss: 0.1138 | Train Acc: 95.83% | Val Acc: 68.66%
+2025-10-11 00:26:21,894 - INFO - Epoch 14/100 | Loss: 0.1068 | Train Acc: 96.15% | Val Acc: 69.57%
+2025-10-11 00:30:13,601 - INFO - Epoch 15/100 | Loss: 0.0691 | Train Acc: 97.52% | Val Acc: 70.00%
+2025-10-11 00:34:04,798 - INFO - Epoch 16/100 | Loss: 0.0589 | Train Acc: 97.86% | Val Acc: 70.29%
+2025-10-11 00:37:56,216 - INFO - Epoch 17/100 | Loss: 0.0544 | Train Acc: 98.08% | Val Acc: 69.92%
+2025-10-11 00:41:47,748 - INFO - Epoch 18/100 | Loss: 0.0505 | Train Acc: 98.20% | Val Acc: 70.06%
+2025-10-11 00:45:35,613 - INFO - Epoch 19/100 | Loss: 0.0474 | Train Acc: 98.33% | Val Acc: 69.83%
+2025-10-11 00:49:25,474 - INFO - Epoch 20/100 | Loss: 0.0356 | Train Acc: 98.76% | Val Acc: 70.33%
+2025-10-11 00:53:17,689 - INFO - Epoch 21/100 | Loss: 0.0316 | Train Acc: 98.89% | Val Acc: 70.31%
+2025-10-11 00:57:09,797 - INFO - Epoch 22/100 | Loss: 0.0296 | Train Acc: 98.96% | Val Acc: 70.44%
+2025-10-11 01:01:00,833 - INFO - Epoch 23/100 | Loss: 0.0287 | Train Acc: 99.00% | Val Acc: 70.46%
+2025-10-11 01:04:52,133 - INFO - Epoch 24/100 | Loss: 0.0274 | Train Acc: 99.06% | Val Acc: 70.18%
+2025-10-11 01:08:44,169 - INFO - Epoch 25/100 | Loss: 0.0262 | Train Acc: 99.11% | Val Acc: 70.87%
+2025-10-11 01:12:35,711 - INFO - Epoch 26/100 | Loss: 0.0261 | Train Acc: 99.11% | Val Acc: 70.62%
+2025-10-11 01:16:27,201 - INFO - Epoch 27/100 | Loss: 0.0241 | Train Acc: 99.17% | Val Acc: 70.17%
+2025-10-11 01:20:17,597 - INFO - Epoch 28/100 | Loss: 0.0235 | Train Acc: 99.16% | Val Acc: 70.41%
+2025-10-11 01:24:09,138 - INFO - Epoch 29/100 | Loss: 0.0207 | Train Acc: 99.30% | Val Acc: 70.66%
+2025-10-11 01:28:01,082 - INFO - Epoch 30/100 | Loss: 0.0188 | Train Acc: 99.34% | Val Acc: 70.85%
+2025-10-11 01:28:01,082 - INFO - Early stopping triggered at epoch 30
+2025-10-11 01:28:01,084 - INFO - Training complete. Saving model to saidas\saved_models\ExpW_efficientnet_b0.pth
+2025-10-11 01:28:01,119 - INFO - Evaluating efficientnet_b0...
+2025-10-11 01:28:19,099 - INFO - Using Test-Time Augmentation...
+2025-10-11 01:30:45,733 - INFO - efficientnet_b0 | Accuracy: 0.7085 | Accuracy (TTA): 0.7109
+2025-10-11 01:30:45,744 - INFO - 
+              precision    recall  f1-score   support
+
+       Angry      0.604     0.422     0.497       734
+     Disgust      0.461     0.119     0.189       799
+        Fear      0.431     0.101     0.164       218
+       Happy      0.815     0.834     0.825      6107
+         Sad      0.638     0.404     0.495      2112
+    Surprise      0.612     0.555     0.582      1412
+     Neutral      0.676     0.844     0.751      6977
+
+    accuracy                          0.711     18359
+   macro avg      0.605     0.469     0.500     18359
+weighted avg      0.698     0.711     0.691     18359
+
+2025-10-11 01:30:45,928 - INFO - Confusion matrix saved to: saidas\ExpW_efficientnet_b0_cm_TTA.png
+2025-10-11 01:30:46,054 - INFO - 
+================================================================================
+Processing Dataset for Training: FER2013
+================================================================================
+2025-10-11 01:30:46,198 - INFO - Class distribution plot saved to: saidas\FER2013_dist_original.png
+2025-10-11 01:30:46,199 - INFO - Balanceando dados com RandomOversampler...
+2025-10-11 01:30:46,200 - INFO - Distribuição de classes original: [(np.int64(0), 3995), (np.int64(1), 436), (np.int64(2), 4097), (np.int64(3), 7215), (np.int64(4), 4830), (np.int64(5), 3171), (np.int64(6), 4965)]
+2025-10-11 01:30:46,211 - INFO - Distribuição de classes reamostrada: [(np.int64(0), 7215), (np.int64(1), 7215), (np.int64(2), 7215), (np.int64(3), 7215), (np.int64(4), 7215), (np.int64(5), 7215), (np.int64(6), 7215)]
+2025-10-11 01:30:46,364 - INFO - Class distribution plot saved to: saidas\FER2013_dist_balanced.png
+2025-10-11 01:30:46,364 - INFO - 
+--- Processing densenet121 on FER2013 with Batch Size: 96 ---
+2025-10-11 01:30:46,478 - INFO - No pre-trained model found. Starting training...
+2025-10-11 01:32:51,597 - INFO - Epoch 1/100 | Loss: 1.2434 | Train Acc: 53.00% | Val Acc: 57.84%
+2025-10-11 01:34:54,935 - INFO - Epoch 2/100 | Loss: 1.0125 | Train Acc: 61.85% | Val Acc: 59.04%
+2025-10-11 01:36:58,359 - INFO - Epoch 3/100 | Loss: 0.9255 | Train Acc: 65.36% | Val Acc: 62.30%
+2025-10-11 01:39:01,838 - INFO - Epoch 4/100 | Loss: 0.8621 | Train Acc: 67.71% | Val Acc: 64.71%
+2025-10-11 01:41:05,609 - INFO - Epoch 5/100 | Loss: 0.8119 | Train Acc: 69.56% | Val Acc: 63.65%
+2025-10-11 01:43:09,280 - INFO - Epoch 6/100 | Loss: 0.7729 | Train Acc: 71.04% | Val Acc: 65.92%
+2025-10-11 01:45:12,848 - INFO - Epoch 7/100 | Loss: 0.7435 | Train Acc: 72.24% | Val Acc: 64.74%
+2025-10-11 01:47:16,564 - INFO - Epoch 8/100 | Loss: 0.7119 | Train Acc: 73.45% | Val Acc: 66.77%
+2025-10-11 01:49:20,182 - INFO - Epoch 9/100 | Loss: 0.6772 | Train Acc: 75.02% | Val Acc: 66.91%
+2025-10-11 01:51:23,713 - INFO - Epoch 10/100 | Loss: 0.6456 | Train Acc: 76.14% | Val Acc: 67.47%
+2025-10-11 01:53:27,520 - INFO - Epoch 11/100 | Loss: 0.6172 | Train Acc: 77.10% | Val Acc: 67.61%
+2025-10-11 01:55:30,906 - INFO - Epoch 12/100 | Loss: 0.5783 | Train Acc: 78.64% | Val Acc: 67.71%
+2025-10-11 01:57:34,379 - INFO - Epoch 13/100 | Loss: 0.5596 | Train Acc: 79.53% | Val Acc: 67.71%
+2025-10-11 01:59:37,718 - INFO - Epoch 14/100 | Loss: 0.5367 | Train Acc: 80.37% | Val Acc: 66.09%
+2025-10-11 02:01:40,971 - INFO - Epoch 15/100 | Loss: 0.5207 | Train Acc: 80.94% | Val Acc: 66.58%
+2025-10-11 02:03:44,498 - INFO - Epoch 16/100 | Loss: 0.3911 | Train Acc: 85.86% | Val Acc: 69.96%
+2025-10-11 02:05:47,974 - INFO - Epoch 17/100 | Loss: 0.3609 | Train Acc: 87.07% | Val Acc: 69.56%
+2025-10-11 02:07:51,266 - INFO - Epoch 18/100 | Loss: 0.3308 | Train Acc: 88.31% | Val Acc: 69.84%
+2025-10-11 02:09:57,920 - INFO - Epoch 19/100 | Loss: 0.3118 | Train Acc: 88.95% | Val Acc: 69.69%
+2025-10-11 02:12:01,135 - INFO - Epoch 20/100 | Loss: 0.2431 | Train Acc: 91.47% | Val Acc: 70.84%
+2025-10-11 02:14:04,348 - INFO - Epoch 21/100 | Loss: 0.2253 | Train Acc: 91.96% | Val Acc: 70.70%
+2025-10-11 02:16:07,989 - INFO - Epoch 22/100 | Loss: 0.2099 | Train Acc: 92.57% | Val Acc: 71.18%
+2025-10-11 02:18:11,545 - INFO - Epoch 23/100 | Loss: 0.1967 | Train Acc: 93.11% | Val Acc: 70.53%
+2025-10-11 02:20:14,968 - INFO - Epoch 24/100 | Loss: 0.1868 | Train Acc: 93.34% | Val Acc: 70.93%
+2025-10-11 02:22:18,380 - INFO - Epoch 25/100 | Loss: 0.1768 | Train Acc: 93.83% | Val Acc: 71.33%
+2025-10-11 02:24:21,407 - INFO - Epoch 26/100 | Loss: 0.1740 | Train Acc: 93.92% | Val Acc: 71.18%
+2025-10-11 02:26:25,002 - INFO - Epoch 27/100 | Loss: 0.1700 | Train Acc: 93.98% | Val Acc: 70.80%
+2025-10-11 02:28:28,330 - INFO - Epoch 28/100 | Loss: 0.1561 | Train Acc: 94.55% | Val Acc: 70.90%
+2025-10-11 02:30:31,375 - INFO - Epoch 29/100 | Loss: 0.1317 | Train Acc: 95.32% | Val Acc: 71.12%
+2025-10-11 02:32:34,976 - INFO - Epoch 30/100 | Loss: 0.1209 | Train Acc: 95.72% | Val Acc: 71.52%
+2025-10-11 02:34:38,276 - INFO - Epoch 31/100 | Loss: 0.1146 | Train Acc: 95.98% | Val Acc: 71.30%
+2025-10-11 02:36:41,721 - INFO - Epoch 32/100 | Loss: 0.1163 | Train Acc: 95.94% | Val Acc: 71.55%
+2025-10-11 02:38:45,206 - INFO - Epoch 33/100 | Loss: 0.1104 | Train Acc: 96.09% | Val Acc: 71.48%
+2025-10-11 02:40:48,762 - INFO - Epoch 34/100 | Loss: 0.1037 | Train Acc: 96.37% | Val Acc: 71.73%
+2025-10-11 02:42:52,468 - INFO - Epoch 35/100 | Loss: 0.1032 | Train Acc: 96.32% | Val Acc: 71.36%
+2025-10-11 02:44:56,137 - INFO - Epoch 36/100 | Loss: 0.1030 | Train Acc: 96.53% | Val Acc: 71.26%
+2025-10-11 02:46:59,808 - INFO - Epoch 37/100 | Loss: 0.1000 | Train Acc: 96.49% | Val Acc: 71.04%
+2025-10-11 02:49:03,203 - INFO - Epoch 38/100 | Loss: 0.0900 | Train Acc: 96.79% | Val Acc: 71.15%
+2025-10-11 02:51:07,007 - INFO - Epoch 39/100 | Loss: 0.0841 | Train Acc: 97.06% | Val Acc: 71.40%
+2025-10-11 02:51:07,007 - INFO - Early stopping triggered at epoch 39
+2025-10-11 02:51:07,009 - INFO - Training complete. Saving model to saidas\saved_models\FER2013_densenet121.pth
+2025-10-11 02:51:07,060 - INFO - Evaluating densenet121...
+2025-10-11 02:51:24,173 - INFO - Using Test-Time Augmentation...
+2025-10-11 02:52:37,716 - INFO - densenet121 | Accuracy: 0.7140 | Accuracy (TTA): 0.7230
+2025-10-11 02:52:37,722 - INFO - 
+              precision    recall  f1-score   support
+
+       Angry      0.637     0.677     0.657       958
+     Disgust      0.849     0.658     0.741       111
+        Fear      0.622     0.568     0.594      1024
+       Happy      0.902     0.887     0.895      1774
+         Sad      0.601     0.594     0.598      1247
+    Surprise      0.835     0.838     0.836       831
+     Neutral      0.660     0.710     0.684      1233
+
+    accuracy                          0.723      7178
+   macro avg      0.729     0.705     0.715      7178
+weighted avg      0.724     0.723     0.723      7178
+
+2025-10-11 02:52:37,912 - INFO - Confusion matrix saved to: saidas\FER2013_densenet121_cm_TTA.png
+2025-10-11 02:52:37,951 - INFO - 
+--- Processing resnet50 on FER2013 with Batch Size: 144 ---
+2025-10-11 02:52:38,136 - INFO - No pre-trained model found. Starting training...
+2025-10-11 02:55:01,503 - INFO - Epoch 1/100 | Loss: 1.2094 | Train Acc: 54.40% | Val Acc: 60.59%
+2025-10-11 02:57:24,486 - INFO - Epoch 2/100 | Loss: 0.9591 | Train Acc: 63.84% | Val Acc: 61.10%
+2025-10-11 02:59:47,608 - INFO - Epoch 3/100 | Loss: 0.8691 | Train Acc: 67.37% | Val Acc: 63.99%
+2025-10-11 03:02:10,846 - INFO - Epoch 4/100 | Loss: 0.8116 | Train Acc: 69.51% | Val Acc: 65.58%
+2025-10-11 03:04:34,051 - INFO - Epoch 5/100 | Loss: 0.7601 | Train Acc: 71.60% | Val Acc: 64.00%
+2025-10-11 03:06:57,244 - INFO - Epoch 6/100 | Loss: 0.7181 | Train Acc: 73.02% | Val Acc: 66.54%
+2025-10-11 03:09:20,162 - INFO - Epoch 7/100 | Loss: 0.6817 | Train Acc: 74.60% | Val Acc: 64.91%
+2025-10-11 03:11:43,350 - INFO - Epoch 8/100 | Loss: 0.6432 | Train Acc: 76.24% | Val Acc: 66.86%
+2025-10-11 03:14:06,644 - INFO - Epoch 9/100 | Loss: 0.6130 | Train Acc: 77.36% | Val Acc: 67.73%
+2025-10-11 03:16:29,761 - INFO - Epoch 10/100 | Loss: 0.5828 | Train Acc: 78.45% | Val Acc: 67.22%
+2025-10-11 03:18:52,936 - INFO - Epoch 11/100 | Loss: 0.5461 | Train Acc: 79.91% | Val Acc: 65.42%
+2025-10-11 03:21:16,347 - INFO - Epoch 12/100 | Loss: 0.5187 | Train Acc: 80.95% | Val Acc: 68.22%
+2025-10-11 03:23:39,364 - INFO - Epoch 13/100 | Loss: 0.4906 | Train Acc: 82.23% | Val Acc: 65.77%
+2025-10-11 03:26:02,485 - INFO - Epoch 14/100 | Loss: 0.4614 | Train Acc: 83.20% | Val Acc: 66.95%
+2025-10-11 03:28:25,443 - INFO - Epoch 15/100 | Loss: 0.4321 | Train Acc: 84.21% | Val Acc: 68.08%
+2025-10-11 03:30:48,291 - INFO - Epoch 16/100 | Loss: 0.3270 | Train Acc: 88.49% | Val Acc: 68.79%
+2025-10-11 03:33:11,418 - INFO - Epoch 17/100 | Loss: 0.2905 | Train Acc: 89.61% | Val Acc: 69.49%
+2025-10-11 03:35:34,534 - INFO - Epoch 18/100 | Loss: 0.2672 | Train Acc: 90.70% | Val Acc: 69.53%
+2025-10-11 03:37:57,673 - INFO - Epoch 19/100 | Loss: 0.2471 | Train Acc: 91.28% | Val Acc: 69.45%
+2025-10-11 03:40:20,945 - INFO - Epoch 20/100 | Loss: 0.2311 | Train Acc: 91.85% | Val Acc: 69.23%
+2025-10-11 03:42:44,195 - INFO - Epoch 21/100 | Loss: 0.2163 | Train Acc: 92.33% | Val Acc: 68.77%
+2025-10-11 03:45:07,266 - INFO - Epoch 22/100 | Loss: 0.1623 | Train Acc: 94.36% | Val Acc: 70.47%
+2025-10-11 03:47:30,550 - INFO - Epoch 23/100 | Loss: 0.1466 | Train Acc: 94.87% | Val Acc: 70.49%
+2025-10-11 03:49:54,201 - INFO - Epoch 24/100 | Loss: 0.1360 | Train Acc: 95.26% | Val Acc: 71.04%
+2025-10-11 03:52:17,267 - INFO - Epoch 25/100 | Loss: 0.1276 | Train Acc: 95.47% | Val Acc: 70.47%
+2025-10-11 03:54:40,565 - INFO - Epoch 26/100 | Loss: 0.1238 | Train Acc: 95.64% | Val Acc: 70.31%
+2025-10-11 03:57:03,699 - INFO - Epoch 27/100 | Loss: 0.1186 | Train Acc: 95.86% | Val Acc: 70.87%
+2025-10-11 03:59:26,977 - INFO - Epoch 28/100 | Loss: 0.0996 | Train Acc: 96.57% | Val Acc: 71.11%
+2025-10-11 04:01:50,423 - INFO - Epoch 29/100 | Loss: 0.0913 | Train Acc: 96.93% | Val Acc: 71.55%
+2025-10-11 04:04:13,630 - INFO - Epoch 30/100 | Loss: 0.0836 | Train Acc: 97.13% | Val Acc: 71.16%
+2025-10-11 04:06:36,641 - INFO - Epoch 31/100 | Loss: 0.0807 | Train Acc: 97.13% | Val Acc: 71.26%
+2025-10-11 04:09:00,060 - INFO - Epoch 32/100 | Loss: 0.0812 | Train Acc: 97.11% | Val Acc: 71.12%
+2025-10-11 04:11:23,121 - INFO - Epoch 33/100 | Loss: 0.0694 | Train Acc: 97.63% | Val Acc: 71.12%
+2025-10-11 04:13:46,408 - INFO - Epoch 34/100 | Loss: 0.0656 | Train Acc: 97.66% | Val Acc: 71.36%
+2025-10-11 04:13:46,408 - INFO - Early stopping triggered at epoch 34
+2025-10-11 04:13:46,409 - INFO - Training complete. Saving model to saidas\saved_models\FER2013_resnet50.pth
+2025-10-11 04:13:46,478 - INFO - Evaluating resnet50...
+2025-10-11 04:14:06,588 - INFO - Using Test-Time Augmentation...
+2025-10-11 04:15:28,486 - INFO - resnet50 | Accuracy: 0.7136 | Accuracy (TTA): 0.7182
+2025-10-11 04:15:28,491 - INFO - 
+              precision    recall  f1-score   support
+
+       Angry      0.623     0.676     0.649       958
+     Disgust      0.904     0.676     0.773       111
+        Fear      0.599     0.556     0.576      1024
+       Happy      0.890     0.893     0.892      1774
+         Sad      0.603     0.592     0.597      1247
+    Surprise      0.822     0.844     0.833       831
+     Neutral      0.673     0.681     0.677      1233
+
+    accuracy                          0.718      7178
+   macro avg      0.730     0.702     0.714      7178
+weighted avg      0.718     0.718     0.718      7178
+
+2025-10-11 04:15:28,705 - INFO - Confusion matrix saved to: saidas\FER2013_resnet50_cm_TTA.png
+2025-10-11 04:15:28,742 - INFO - 
+--- Processing efficientnet_b0 on FER2013 with Batch Size: 144 ---
+2025-10-11 04:15:28,772 - INFO - Loading pretrained weights from Hugging Face hub (timm/efficientnet_b0.ra_in1k)
+2025-10-11 04:15:29,083 - INFO - [timm/efficientnet_b0.ra_in1k] Safe alternative available for 'pytorch_model.bin' (as 'model.safetensors'). Loading weights using safetensors.
+2025-10-11 04:15:29,100 - INFO - Missing keys (classifier.weight, classifier.bias) discovered while loading pretrained weights. This is expected if model is being adapted.
+2025-10-11 04:15:29,109 - INFO - No pre-trained model found. Starting training...
+2025-10-11 04:16:48,142 - INFO - Epoch 1/100 | Loss: 1.2529 | Train Acc: 54.59% | Val Acc: 62.93%
+2025-10-11 04:18:06,903 - INFO - Epoch 2/100 | Loss: 0.8422 | Train Acc: 68.53% | Val Acc: 65.10%
+2025-10-11 04:19:25,607 - INFO - Epoch 3/100 | Loss: 0.7257 | Train Acc: 73.11% | Val Acc: 66.56%
+2025-10-11 04:20:44,267 - INFO - Epoch 4/100 | Loss: 0.6404 | Train Acc: 76.63% | Val Acc: 67.07%
+2025-10-11 04:22:02,821 - INFO - Epoch 5/100 | Loss: 0.5673 | Train Acc: 79.54% | Val Acc: 66.36%
+2025-10-11 04:23:21,720 - INFO - Epoch 6/100 | Loss: 0.5044 | Train Acc: 81.77% | Val Acc: 68.32%
+2025-10-11 04:24:40,711 - INFO - Epoch 7/100 | Loss: 0.4484 | Train Acc: 83.91% | Val Acc: 67.32%
+2025-10-11 04:25:59,491 - INFO - Epoch 8/100 | Loss: 0.3982 | Train Acc: 85.82% | Val Acc: 68.42%
+2025-10-11 04:27:17,988 - INFO - Epoch 9/100 | Loss: 0.3543 | Train Acc: 87.45% | Val Acc: 69.11%
+2025-10-11 04:28:36,620 - INFO - Epoch 10/100 | Loss: 0.3271 | Train Acc: 88.33% | Val Acc: 67.53%
+2025-10-11 04:29:55,362 - INFO - Epoch 11/100 | Loss: 0.2933 | Train Acc: 89.63% | Val Acc: 69.17%
+2025-10-11 04:31:14,022 - INFO - Epoch 12/100 | Loss: 0.2669 | Train Acc: 90.57% | Val Acc: 68.29%
+2025-10-11 04:32:32,629 - INFO - Epoch 13/100 | Loss: 0.2514 | Train Acc: 91.12% | Val Acc: 68.51%
+2025-10-11 04:33:51,046 - INFO - Epoch 14/100 | Loss: 0.2257 | Train Acc: 91.91% | Val Acc: 68.82%
+2025-10-11 04:35:09,748 - INFO - Epoch 15/100 | Loss: 0.1289 | Train Acc: 95.45% | Val Acc: 70.79%
+2025-10-11 04:36:28,246 - INFO - Epoch 16/100 | Loss: 0.1017 | Train Acc: 96.39% | Val Acc: 70.33%
+2025-10-11 04:37:46,976 - INFO - Epoch 17/100 | Loss: 0.1000 | Train Acc: 96.47% | Val Acc: 70.31%
+2025-10-11 04:39:05,592 - INFO - Epoch 18/100 | Loss: 0.0937 | Train Acc: 96.70% | Val Acc: 69.89%
+2025-10-11 04:40:24,173 - INFO - Epoch 19/100 | Loss: 0.0696 | Train Acc: 97.46% | Val Acc: 71.04%
+2025-10-11 04:41:43,182 - INFO - Epoch 20/100 | Loss: 0.0576 | Train Acc: 97.95% | Val Acc: 70.59%
+2025-10-11 04:43:01,753 - INFO - Epoch 21/100 | Loss: 0.0553 | Train Acc: 97.91% | Val Acc: 70.86%
+2025-10-11 04:44:20,293 - INFO - Epoch 22/100 | Loss: 0.0544 | Train Acc: 98.02% | Val Acc: 70.12%
+2025-10-11 04:45:38,882 - INFO - Epoch 23/100 | Loss: 0.0445 | Train Acc: 98.32% | Val Acc: 70.81%
+2025-10-11 04:46:57,384 - INFO - Epoch 24/100 | Loss: 0.0396 | Train Acc: 98.54% | Val Acc: 71.27%
+2025-10-11 04:48:15,838 - INFO - Epoch 25/100 | Loss: 0.0388 | Train Acc: 98.53% | Val Acc: 71.11%
+2025-10-11 04:49:34,038 - INFO - Epoch 26/100 | Loss: 0.0382 | Train Acc: 98.59% | Val Acc: 70.83%
+2025-10-11 04:50:52,750 - INFO - Epoch 27/100 | Loss: 0.0347 | Train Acc: 98.66% | Val Acc: 71.38%
+2025-10-11 04:52:11,144 - INFO - Epoch 28/100 | Loss: 0.0361 | Train Acc: 98.64% | Val Acc: 71.41%
+2025-10-11 04:53:29,599 - INFO - Epoch 29/100 | Loss: 0.0329 | Train Acc: 98.74% | Val Acc: 70.97%
+2025-10-11 04:54:48,116 - INFO - Epoch 30/100 | Loss: 0.0351 | Train Acc: 98.74% | Val Acc: 70.66%
+2025-10-11 04:56:06,609 - INFO - Epoch 31/100 | Loss: 0.0330 | Train Acc: 98.76% | Val Acc: 70.94%
+2025-10-11 04:57:25,177 - INFO - Epoch 32/100 | Loss: 0.0290 | Train Acc: 98.93% | Val Acc: 70.88%
+2025-10-11 04:58:43,697 - INFO - Epoch 33/100 | Loss: 0.0268 | Train Acc: 98.90% | Val Acc: 71.02%
+2025-10-11 04:58:43,698 - INFO - Early stopping triggered at epoch 33
+2025-10-11 04:58:43,699 - INFO - Training complete. Saving model to saidas\saved_models\FER2013_efficientnet_b0.pth
+2025-10-11 04:58:43,726 - INFO - Evaluating efficientnet_b0...
+2025-10-11 04:58:58,483 - INFO - Using Test-Time Augmentation...
+2025-10-11 05:00:03,992 - INFO - efficientnet_b0 | Accuracy: 0.7102 | Accuracy (TTA): 0.7172
+2025-10-11 05:00:03,997 - INFO - 
+              precision    recall  f1-score   support
+
+       Angry      0.660     0.635     0.647       958
+     Disgust      0.918     0.703     0.796       111
+        Fear      0.615     0.536     0.573      1024
+       Happy      0.872     0.895     0.883      1774
+         Sad      0.600     0.582     0.591      1247
+    Surprise      0.833     0.841     0.837       831
+     Neutral      0.639     0.731     0.682      1233
+
+    accuracy                          0.717      7178
+   macro avg      0.734     0.703     0.716      7178
+weighted avg      0.716     0.717     0.715      7178
+
+2025-10-11 05:00:04,178 - INFO - Confusion matrix saved to: saidas\FER2013_efficientnet_b0_cm_TTA.png
+2025-10-11 05:00:04,315 - INFO - 
+================================================================================
+Cross-Dataset Evaluation
+================================================================================
+2025-10-11 05:00:04,316 - INFO - 
+Evaluating models from RAF-DB on RAF-DB data...
+2025-10-11 05:00:13,458 - INFO -   densenet121: 0.8608
+2025-10-11 05:00:22,527 - INFO -   resnet50: 0.8677
+2025-10-11 05:00:30,687 - INFO -   efficientnet_b0: 0.8517
+2025-10-11 05:00:30,688 - INFO - 
+Evaluating models from RAF-DB on ExpW data...
+2025-10-11 05:00:52,593 - INFO -   densenet121: 0.5829
+2025-10-11 05:01:13,172 - INFO -   resnet50: 0.5811
+2025-10-11 05:01:28,939 - INFO -   efficientnet_b0: 0.5627
+2025-10-11 05:01:28,939 - INFO - 
+Evaluating models from RAF-DB on FER2013 data...
+2025-10-11 05:01:41,331 - INFO -   densenet121: 0.5369
+2025-10-11 05:01:53,381 - INFO -   resnet50: 0.5290
+2025-10-11 05:02:03,455 - INFO -   efficientnet_b0: 0.5244
+2025-10-11 05:02:03,455 - INFO - 
+Evaluating models from ExpW on RAF-DB data...
+2025-10-11 05:02:12,455 - INFO -   densenet121: 0.7106
+2025-10-11 05:02:21,394 - INFO -   resnet50: 0.6975
+2025-10-11 05:02:29,438 - INFO -   efficientnet_b0: 0.6969
+2025-10-11 05:02:29,438 - INFO - 
+Evaluating models from ExpW on ExpW data...
+2025-10-11 05:02:51,317 - INFO -   densenet121: 0.7050
+2025-10-11 05:03:14,710 - INFO -   resnet50: 0.7106
+2025-10-11 05:03:30,336 - INFO -   efficientnet_b0: 0.7085
+2025-10-11 05:03:30,337 - INFO - 
+Evaluating models from ExpW on FER2013 data...
+2025-10-11 05:03:42,619 - INFO -   densenet121: 0.5330
+2025-10-11 05:03:57,381 - INFO -   resnet50: 0.5149
+2025-10-11 05:04:07,439 - INFO -   efficientnet_b0: 0.5199
+2025-10-11 05:04:07,440 - INFO - 
+Evaluating models from FER2013 on RAF-DB data...
+2025-10-11 05:04:16,447 - INFO -   densenet121: 0.6063
+2025-10-11 05:04:25,361 - INFO -   resnet50: 0.6001
+2025-10-11 05:04:33,498 - INFO -   efficientnet_b0: 0.6102
+2025-10-11 05:04:33,499 - INFO - 
+Evaluating models from FER2013 on ExpW data...
+2025-10-11 05:04:55,242 - INFO -   densenet121: 0.4939
+2025-10-11 05:05:15,748 - INFO -   resnet50: 0.4878
+2025-10-11 05:05:31,519 - INFO -   efficientnet_b0: 0.5085
+2025-10-11 05:05:31,520 - INFO - 
+Evaluating models from FER2013 on FER2013 data...
+2025-10-11 05:05:43,876 - INFO -   densenet121: 0.7140
+2025-10-11 05:05:55,846 - INFO -   resnet50: 0.7136
+2025-10-11 05:06:06,083 - INFO -   efficientnet_b0: 0.7102
+2025-10-11 05:06:06,426 - INFO - Cross-dataset evaluation plot saved to: saidas\cross_dataset_evaluation.png
+2025-10-11 05:06:06,426 - INFO - 
+================================================================================
+Final Results Summary
+================================================================================
+2025-10-11 05:06:06,429 - INFO - 
+Dataset           Model  Accuracy  Accuracy (TTA)  Training Time (s)
+ RAF-DB     densenet121  0.860821        0.870274               1570
+ RAF-DB        resnet50  0.867666        0.872229               3752
+ RAF-DB efficientnet_b0  0.851695        0.859192               1219
+   ExpW     densenet121  0.704995        0.711368               9978
+   ExpW        resnet50  0.710551        0.717087              18169
+   ExpW efficientnet_b0  0.708535        0.710932               6928
+FER2013     densenet121  0.713987        0.723043               4820
+FER2013        resnet50  0.713569        0.718167               4868
+FER2013 efficientnet_b0  0.710226        0.717191               2594

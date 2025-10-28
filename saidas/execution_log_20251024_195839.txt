@@ -1,0 +1,1073 @@
+2025-10-24 19:58:39,846 - INFO - Logging initialized. Log file at: saidas\execution_log_20251024_195839.txt
+2025-10-24 19:58:39,848 - INFO - Device: cuda
+2025-10-24 19:58:39,850 - INFO - GPU: NVIDIA GeForce RTX 5070 Ti
+2025-10-24 19:58:39,850 - INFO - Training Strategy: both
+2025-10-24 19:58:39,850 - INFO - Output Format: pdf
+2025-10-24 19:58:39,850 - INFO - Normalize CM: True
+2025-10-24 19:58:39,850 - INFO - 
+================================================================================
+2025-10-24 19:58:39,850 - INFO - LOADING DATASETS
+2025-10-24 19:58:39,850 - INFO - ================================================================================
+2025-10-24 19:58:39,850 - INFO - 
+Loading RAF-DB...
+2025-10-24 19:58:39,867 - INFO -   Train: 12271 | Test: 3068
+2025-10-24 19:58:39,868 - INFO - 
+Loading ExpW...
+2025-10-24 19:58:39,868 - INFO - Loading images from ExpW dataset at: ./expw/Expw-F
+2025-10-24 19:58:39,871 - INFO -   Found 3671 images for 'angry'.
+2025-10-24 19:58:39,875 - INFO -   Found 3995 images for 'disgust'.
+2025-10-24 19:58:39,876 - INFO -   Found 1088 images for 'fear'.
+2025-10-24 19:58:39,902 - INFO -   Found 30537 images for 'happy'.
+2025-10-24 19:58:39,912 - INFO -   Found 10559 images for 'sad'.
+2025-10-24 19:58:39,918 - INFO -   Found 7060 images for 'surprise'.
+2025-10-24 19:58:39,948 - INFO -   Found 34883 images for 'neutral'.
+2025-10-24 19:58:39,948 - INFO - Total images loaded from ExpW: 91793
+2025-10-24 19:58:39,974 - INFO - ExpW split into 73434 training images and 18359 testing images.
+2025-10-24 19:58:39,977 - INFO -   Train: 73434 | Test: 18359
+2025-10-24 19:58:39,977 - INFO - 
+Loading FER2013...
+2025-10-24 19:58:40,013 - INFO -   Train: 28709 | Test: 7178
+2025-10-24 19:58:40,013 - INFO - 
+================================================================================
+2025-10-24 19:58:40,013 - INFO - PHASE 1: INDIVIDUAL DATASET TRAINING
+2025-10-24 19:58:40,013 - INFO - ================================================================================
+2025-10-24 19:58:40,013 - INFO - 
+================================================================================
+Processing Dataset: RAF-DB
+================================================================================
+2025-10-24 19:58:40,181 - INFO - Plot saved to: saidas\class_distributions\RAF-DB_dist_original.pdf
+2025-10-24 19:58:40,182 - INFO - Balanceando dados com RandomOversampler...
+2025-10-24 19:58:40,182 - INFO - Distribuição de classes original: [(np.int64(0), 705), (np.int64(1), 717), (np.int64(2), 281), (np.int64(3), 4772), (np.int64(4), 1982), (np.int64(5), 1290), (np.int64(6), 2524)]
+2025-10-24 19:58:40,190 - INFO - Distribuição de classes reamostrada: [(np.int64(0), 4772), (np.int64(1), 4772), (np.int64(2), 4772), (np.int64(3), 4772), (np.int64(4), 4772), (np.int64(5), 4772), (np.int64(6), 4772)]
+2025-10-24 19:58:40,312 - INFO - Plot saved to: saidas\class_distributions\RAF-DB_dist_balanced.pdf
+2025-10-24 19:58:40,312 - INFO - 
+--- Training densenet121 on RAF-DB (Batch: 96) ---
+2025-10-24 19:58:40,471 - INFO - Loading pre-trained model from saidas\saved_models\RAF-DB_densenet121.pth
+2025-10-24 19:58:55,327 - INFO - Using Test-Time Augmentation...
+2025-10-24 19:59:33,741 - INFO - densenet121 | Acc: 0.8608 | Acc (TTA): 0.8703
+2025-10-24 19:59:33,950 - INFO - Plot saved to: saidas\confusion_matrices\TTA\RAF-DB_densenet121_cm_TTA.pdf
+2025-10-24 19:59:34,264 - INFO - Plot saved to: saidas\error_analysis\RAF-DB_densenet121_error_analysis.pdf
+2025-10-24 19:59:34,264 - INFO - 
+============================================================
+2025-10-24 19:59:34,265 - INFO - ERROR ANALYSIS: Error Analysis: densenet121 on RAF-DB
+2025-10-24 19:59:34,265 - INFO - ============================================================
+2025-10-24 19:59:34,265 - INFO - Overall Accuracy: 87.03%
+2025-10-24 19:59:34,265 - INFO - Average Error Rate: 21.09%
+2025-10-24 19:59:34,265 - INFO - Best Class: Happy (95.19% acc)
+2025-10-24 19:59:34,265 - INFO - Worst Class: Fear (58.11% acc)
+2025-10-24 19:59:34,266 - INFO - 
+Top 5 Confusions:
+2025-10-24 19:59:34,266 - INFO -   1. Fear → Surprise: 21.6% (n=16)
+2025-10-24 19:59:34,266 - INFO -   2. Disgust → Sad: 11.9% (n=19)
+2025-10-24 19:59:34,266 - INFO -   3. Disgust → Neutral: 11.2% (n=18)
+2025-10-24 19:59:34,266 - INFO -   4. Fear → Sad: 10.8% (n=8)
+2025-10-24 19:59:34,266 - INFO -   5. Disgust → Happy: 7.5% (n=12)
+2025-10-24 19:59:34,271 - INFO - 
+              precision    recall  f1-score   support
+
+       Angry      0.844     0.802     0.823       162
+     Disgust      0.664     0.594     0.627       160
+        Fear      0.717     0.581     0.642        74
+       Happy      0.935     0.952     0.943      1185
+         Sad      0.832     0.858     0.844       478
+    Surprise      0.841     0.903     0.871       329
+     Neutral      0.862     0.834     0.848       680
+
+    accuracy                          0.870      3068
+   macro avg      0.813     0.789     0.800      3068
+weighted avg      0.868     0.870     0.869      3068
+
+2025-10-24 19:59:34,276 - INFO - 
+--- Training resnet50 on RAF-DB (Batch: 128) ---
+2025-10-24 19:59:34,455 - INFO - Loading pre-trained model from saidas\saved_models\RAF-DB_resnet50.pth
+2025-10-24 19:59:49,019 - INFO - Using Test-Time Augmentation...
+2025-10-24 20:00:26,684 - INFO - resnet50 | Acc: 0.8677 | Acc (TTA): 0.8722
+2025-10-24 20:00:26,883 - INFO - Plot saved to: saidas\confusion_matrices\TTA\RAF-DB_resnet50_cm_TTA.pdf
+2025-10-24 20:00:27,182 - INFO - Plot saved to: saidas\error_analysis\RAF-DB_resnet50_error_analysis.pdf
+2025-10-24 20:00:27,182 - INFO - 
+============================================================
+2025-10-24 20:00:27,183 - INFO - ERROR ANALYSIS: Error Analysis: resnet50 on RAF-DB
+2025-10-24 20:00:27,183 - INFO - ============================================================
+2025-10-24 20:00:27,183 - INFO - Overall Accuracy: 87.22%
+2025-10-24 20:00:27,183 - INFO - Average Error Rate: 22.20%
+2025-10-24 20:00:27,183 - INFO - Best Class: Happy (94.68% acc)
+2025-10-24 20:00:27,183 - INFO - Worst Class: Fear (55.41% acc)
+2025-10-24 20:00:27,183 - INFO - 
+Top 5 Confusions:
+2025-10-24 20:00:27,183 - INFO -   1. Fear → Surprise: 23.0% (n=17)
+2025-10-24 20:00:27,183 - INFO -   2. Disgust → Neutral: 12.5% (n=20)
+2025-10-24 20:00:27,184 - INFO -   3. Disgust → Sad: 11.9% (n=19)
+2025-10-24 20:00:27,184 - INFO -   4. Fear → Sad: 10.8% (n=8)
+2025-10-24 20:00:27,184 - INFO -   5. Sad → Neutral: 8.2% (n=39)
+2025-10-24 20:00:27,189 - INFO - 
+              precision    recall  f1-score   support
+
+       Angry      0.829     0.778     0.803       162
+     Disgust      0.744     0.562     0.641       160
+        Fear      0.932     0.554     0.695        74
+       Happy      0.938     0.947     0.942      1185
+         Sad      0.836     0.854     0.845       478
+    Surprise      0.852     0.860     0.856       329
+     Neutral      0.824     0.891     0.857       680
+
+    accuracy                          0.872      3068
+   macro avg      0.851     0.778     0.805      3068
+weighted avg      0.872     0.872     0.870      3068
+
+2025-10-24 20:00:27,197 - INFO - 
+--- Training efficientnet_b0 on RAF-DB (Batch: 128) ---
+2025-10-24 20:00:27,228 - INFO - Loading pretrained weights from Hugging Face hub (timm/efficientnet_b0.ra_in1k)
+2025-10-24 20:00:27,659 - INFO - [timm/efficientnet_b0.ra_in1k] Safe alternative available for 'pytorch_model.bin' (as 'model.safetensors'). Loading weights using safetensors.
+2025-10-24 20:00:27,675 - INFO - Missing keys (classifier.weight, classifier.bias) discovered while loading pretrained weights. This is expected if model is being adapted.
+2025-10-24 20:00:27,686 - INFO - Loading pre-trained model from saidas\saved_models\RAF-DB_efficientnet_b0.pth
+2025-10-24 20:00:41,368 - INFO - Using Test-Time Augmentation...
+2025-10-24 20:01:16,389 - INFO - efficientnet_b0 | Acc: 0.8517 | Acc (TTA): 0.8592
+2025-10-24 20:01:16,598 - INFO - Plot saved to: saidas\confusion_matrices\TTA\RAF-DB_efficientnet_b0_cm_TTA.pdf
+2025-10-24 20:01:16,905 - INFO - Plot saved to: saidas\error_analysis\RAF-DB_efficientnet_b0_error_analysis.pdf
+2025-10-24 20:01:16,905 - INFO - 
+============================================================
+2025-10-24 20:01:16,906 - INFO - ERROR ANALYSIS: Error Analysis: efficientnet_b0 on RAF-DB
+2025-10-24 20:01:16,906 - INFO - ============================================================
+2025-10-24 20:01:16,906 - INFO - Overall Accuracy: 85.92%
+2025-10-24 20:01:16,906 - INFO - Average Error Rate: 23.65%
+2025-10-24 20:01:16,906 - INFO - Best Class: Happy (94.09% acc)
+2025-10-24 20:01:16,906 - INFO - Worst Class: Fear (50.00% acc)
+2025-10-24 20:01:16,907 - INFO - 
+Top 5 Confusions:
+2025-10-24 20:01:16,907 - INFO -   1. Fear → Surprise: 25.7% (n=19)
+2025-10-24 20:01:16,907 - INFO -   2. Disgust → Sad: 16.9% (n=27)
+2025-10-24 20:01:16,907 - INFO -   3. Disgust → Neutral: 13.1% (n=21)
+2025-10-24 20:01:16,907 - INFO -   4. Fear → Sad: 10.8% (n=8)
+2025-10-24 20:01:16,907 - INFO -   5. Sad → Neutral: 7.9% (n=38)
+2025-10-24 20:01:16,911 - INFO - 
+              precision    recall  f1-score   support
+
+       Angry      0.804     0.809     0.806       162
+     Disgust      0.683     0.525     0.594       160
+        Fear      0.755     0.500     0.602        74
+       Happy      0.945     0.941     0.943      1185
+         Sad      0.798     0.879     0.837       478
+    Surprise      0.834     0.857     0.846       329
+     Neutral      0.823     0.834     0.828       680
+
+    accuracy                          0.859      3068
+   macro avg      0.806     0.763     0.779      3068
+weighted avg      0.858     0.859     0.857      3068
+
+2025-10-24 20:01:17,022 - INFO - 
+================================================================================
+Processing Dataset: ExpW
+================================================================================
+2025-10-24 20:01:17,140 - INFO - Plot saved to: saidas\class_distributions\ExpW_dist_original.pdf
+2025-10-24 20:01:17,141 - INFO - Balanceando dados com RandomOversampler...
+2025-10-24 20:01:17,145 - INFO - Distribuição de classes original: [(np.int64(0), 2937), (np.int64(1), 3196), (np.int64(2), 870), (np.int64(3), 24430), (np.int64(4), 8447), (np.int64(5), 5648), (np.int64(6), 27906)]
+2025-10-24 20:01:17,188 - INFO - Distribuição de classes reamostrada: [(np.int64(0), 27906), (np.int64(1), 27906), (np.int64(2), 27906), (np.int64(3), 27906), (np.int64(4), 27906), (np.int64(5), 27906), (np.int64(6), 27906)]
+2025-10-24 20:01:17,334 - INFO - Plot saved to: saidas\class_distributions\ExpW_dist_balanced.pdf
+2025-10-24 20:01:17,335 - INFO - 
+--- Training densenet121 on ExpW (Batch: 96) ---
+2025-10-24 20:01:17,440 - INFO - Loading pre-trained model from saidas\saved_models\ExpW_densenet121.pth
+2025-10-24 20:01:41,592 - INFO - Using Test-Time Augmentation...
+2025-10-24 20:04:28,471 - INFO - densenet121 | Acc: 0.7050 | Acc (TTA): 0.7114
+2025-10-24 20:04:28,668 - INFO - Plot saved to: saidas\confusion_matrices\TTA\ExpW_densenet121_cm_TTA.pdf
+2025-10-24 20:04:28,975 - INFO - Plot saved to: saidas\error_analysis\ExpW_densenet121_error_analysis.pdf
+2025-10-24 20:04:28,975 - INFO - 
+============================================================
+2025-10-24 20:04:28,976 - INFO - ERROR ANALYSIS: Error Analysis: densenet121 on ExpW
+2025-10-24 20:04:28,976 - INFO - ============================================================
+2025-10-24 20:04:28,976 - INFO - Overall Accuracy: 71.14%
+2025-10-24 20:04:28,976 - INFO - Average Error Rate: 50.85%
+2025-10-24 20:04:28,976 - INFO - Best Class: Happy (83.35% acc)
+2025-10-24 20:04:28,977 - INFO - Worst Class: Fear (14.22% acc)
+2025-10-24 20:04:28,977 - INFO - 
+Top 5 Confusions:
+2025-10-24 20:04:28,977 - INFO -   1. Disgust → Neutral: 60.6% (n=484)
+2025-10-24 20:04:28,977 - INFO -   2. Fear → Surprise: 37.2% (n=81)
+2025-10-24 20:04:28,977 - INFO -   3. Sad → Neutral: 37.1% (n=783)
+2025-10-24 20:04:28,977 - INFO -   4. Angry → Neutral: 23.8% (n=175)
+2025-10-24 20:04:28,977 - INFO -   5. Surprise → Neutral: 20.4% (n=288)
+2025-10-24 20:04:28,986 - INFO - 
+              precision    recall  f1-score   support
+
+       Angry      0.574     0.443     0.500       734
+     Disgust      0.323     0.144     0.199       799
+        Fear      0.365     0.142     0.205       218
+       Happy      0.853     0.833     0.843      6107
+         Sad      0.563     0.477     0.516      2112
+    Surprise      0.594     0.591     0.592      1412
+     Neutral      0.691     0.811     0.746      6977
+
+    accuracy                          0.711     18359
+   macro avg      0.566     0.492     0.514     18359
+weighted avg      0.698     0.711     0.700     18359
+
+2025-10-24 20:04:28,995 - INFO - 
+--- Training resnet50 on ExpW (Batch: 128) ---
+2025-10-24 20:04:29,174 - INFO - Loading pre-trained model from saidas\saved_models\ExpW_resnet50.pth
+2025-10-24 20:04:52,168 - INFO - Using Test-Time Augmentation...
+2025-10-24 20:07:45,140 - INFO - resnet50 | Acc: 0.7106 | Acc (TTA): 0.7171
+2025-10-24 20:07:45,338 - INFO - Plot saved to: saidas\confusion_matrices\TTA\ExpW_resnet50_cm_TTA.pdf
+2025-10-24 20:07:45,670 - INFO - Plot saved to: saidas\error_analysis\ExpW_resnet50_error_analysis.pdf
+2025-10-24 20:07:45,670 - INFO - 
+============================================================
+2025-10-24 20:07:45,671 - INFO - ERROR ANALYSIS: Error Analysis: resnet50 on ExpW
+2025-10-24 20:07:45,671 - INFO - ============================================================
+2025-10-24 20:07:45,671 - INFO - Overall Accuracy: 71.71%
+2025-10-24 20:07:45,671 - INFO - Average Error Rate: 52.68%
+2025-10-24 20:07:45,671 - INFO - Best Class: Happy (84.48% acc)
+2025-10-24 20:07:45,672 - INFO - Worst Class: Fear (10.09% acc)
+2025-10-24 20:07:45,672 - INFO - 
+Top 5 Confusions:
+2025-10-24 20:07:45,672 - INFO -   1. Disgust → Neutral: 65.5% (n=523)
+2025-10-24 20:07:45,672 - INFO -   2. Sad → Neutral: 42.2% (n=891)
+2025-10-24 20:07:45,672 - INFO -   3. Fear → Surprise: 38.1% (n=83)
+2025-10-24 20:07:45,673 - INFO -   4. Angry → Neutral: 26.4% (n=194)
+2025-10-24 20:07:45,673 - INFO -   5. Surprise → Neutral: 22.2% (n=313)
+2025-10-24 20:07:45,682 - INFO - 
+              precision    recall  f1-score   support
+
+       Angry      0.598     0.417     0.491       734
+     Disgust      0.429     0.114     0.180       799
+        Fear      0.373     0.101     0.159       218
+       Happy      0.824     0.845     0.834      6107
+         Sad      0.640     0.438     0.520      2112
+    Surprise      0.627     0.556     0.590      1412
+     Neutral      0.682     0.842     0.754      6977
+
+    accuracy                          0.717     18359
+   macro avg      0.596     0.473     0.504     18359
+weighted avg      0.702     0.717     0.698     18359
+
+2025-10-24 20:07:45,688 - INFO - 
+--- Training efficientnet_b0 on ExpW (Batch: 128) ---
+2025-10-24 20:07:45,717 - INFO - Loading pretrained weights from Hugging Face hub (timm/efficientnet_b0.ra_in1k)
+2025-10-24 20:07:46,054 - INFO - [timm/efficientnet_b0.ra_in1k] Safe alternative available for 'pytorch_model.bin' (as 'model.safetensors'). Loading weights using safetensors.
+2025-10-24 20:07:46,071 - INFO - Missing keys (classifier.weight, classifier.bias) discovered while loading pretrained weights. This is expected if model is being adapted.
+2025-10-24 20:07:46,081 - INFO - Loading pre-trained model from saidas\saved_models\ExpW_efficientnet_b0.pth
+2025-10-24 20:08:04,548 - INFO - Using Test-Time Augmentation...
+2025-10-24 20:10:30,909 - INFO - efficientnet_b0 | Acc: 0.7086 | Acc (TTA): 0.7109
+2025-10-24 20:10:31,109 - INFO - Plot saved to: saidas\confusion_matrices\TTA\ExpW_efficientnet_b0_cm_TTA.pdf
+2025-10-24 20:10:31,428 - INFO - Plot saved to: saidas\error_analysis\ExpW_efficientnet_b0_error_analysis.pdf
+2025-10-24 20:10:31,428 - INFO - 
+============================================================
+2025-10-24 20:10:31,429 - INFO - ERROR ANALYSIS: Error Analysis: efficientnet_b0 on ExpW
+2025-10-24 20:10:31,430 - INFO - ============================================================
+2025-10-24 20:10:31,430 - INFO - Overall Accuracy: 71.09%
+2025-10-24 20:10:31,430 - INFO - Average Error Rate: 53.14%
+2025-10-24 20:10:31,430 - INFO - Best Class: Neutral (84.45% acc)
+2025-10-24 20:10:31,430 - INFO - Worst Class: Fear (10.09% acc)
+2025-10-24 20:10:31,430 - INFO - 
+Top 5 Confusions:
+2025-10-24 20:10:31,431 - INFO -   1. Disgust → Neutral: 64.8% (n=518)
+2025-10-24 20:10:31,431 - INFO -   2. Sad → Neutral: 43.1% (n=911)
+2025-10-24 20:10:31,431 - INFO -   3. Fear → Surprise: 39.0% (n=85)
+2025-10-24 20:10:31,431 - INFO -   4. Angry → Neutral: 27.4% (n=201)
+2025-10-24 20:10:31,431 - INFO -   5. Surprise → Neutral: 23.4% (n=330)
+2025-10-24 20:10:31,440 - INFO - 
+              precision    recall  f1-score   support
+
+       Angry      0.604     0.422     0.497       734
+     Disgust      0.461     0.119     0.189       799
+        Fear      0.431     0.101     0.164       218
+       Happy      0.815     0.834     0.825      6107
+         Sad      0.638     0.404     0.495      2112
+    Surprise      0.612     0.555     0.582      1412
+     Neutral      0.676     0.844     0.751      6977
+
+    accuracy                          0.711     18359
+   macro avg      0.605     0.469     0.500     18359
+weighted avg      0.698     0.711     0.691     18359
+
+2025-10-24 20:10:31,563 - INFO - 
+================================================================================
+Processing Dataset: FER2013
+================================================================================
+2025-10-24 20:10:31,687 - INFO - Plot saved to: saidas\class_distributions\FER2013_dist_original.pdf
+2025-10-24 20:10:31,688 - INFO - Balanceando dados com RandomOversampler...
+2025-10-24 20:10:31,690 - INFO - Distribuição de classes original: [(np.int64(0), 3995), (np.int64(1), 436), (np.int64(2), 4097), (np.int64(3), 7215), (np.int64(4), 4830), (np.int64(5), 3171), (np.int64(6), 4965)]
+2025-10-24 20:10:31,701 - INFO - Distribuição de classes reamostrada: [(np.int64(0), 7215), (np.int64(1), 7215), (np.int64(2), 7215), (np.int64(3), 7215), (np.int64(4), 7215), (np.int64(5), 7215), (np.int64(6), 7215)]
+2025-10-24 20:10:31,840 - INFO - Plot saved to: saidas\class_distributions\FER2013_dist_balanced.pdf
+2025-10-24 20:10:31,840 - INFO - 
+--- Training densenet121 on FER2013 (Batch: 96) ---
+2025-10-24 20:10:31,950 - INFO - Loading pre-trained model from saidas\saved_models\FER2013_densenet121.pth
+2025-10-24 20:10:49,781 - INFO - Using Test-Time Augmentation...
+2025-10-24 20:12:03,528 - INFO - densenet121 | Acc: 0.7140 | Acc (TTA): 0.7230
+2025-10-24 20:12:03,718 - INFO - Plot saved to: saidas\confusion_matrices\TTA\FER2013_densenet121_cm_TTA.pdf
+2025-10-24 20:12:04,027 - INFO - Plot saved to: saidas\error_analysis\FER2013_densenet121_error_analysis.pdf
+2025-10-24 20:12:04,027 - INFO - 
+============================================================
+2025-10-24 20:12:04,028 - INFO - ERROR ANALYSIS: Error Analysis: densenet121 on FER2013
+2025-10-24 20:12:04,028 - INFO - ============================================================
+2025-10-24 20:12:04,028 - INFO - Overall Accuracy: 72.30%
+2025-10-24 20:12:04,028 - INFO - Average Error Rate: 29.54%
+2025-10-24 20:12:04,029 - INFO - Best Class: Happy (88.73% acc)
+2025-10-24 20:12:04,029 - INFO - Worst Class: Fear (56.84% acc)
+2025-10-24 20:12:04,029 - INFO - 
+Top 5 Confusions:
+2025-10-24 20:12:04,029 - INFO -   1. Disgust → Angry: 18.9% (n=21)
+2025-10-24 20:12:04,030 - INFO -   2. Fear → Sad: 17.4% (n=178)
+2025-10-24 20:12:04,030 - INFO -   3. Sad → Neutral: 16.0% (n=199)
+2025-10-24 20:12:04,030 - INFO -   4. Neutral → Sad: 12.2% (n=150)
+2025-10-24 20:12:04,030 - INFO -   5. Angry → Sad: 11.2% (n=107)
+2025-10-24 20:12:04,035 - INFO - 
+              precision    recall  f1-score   support
+
+       Angry      0.637     0.677     0.657       958
+     Disgust      0.849     0.658     0.741       111
+        Fear      0.622     0.568     0.594      1024
+       Happy      0.902     0.887     0.895      1774
+         Sad      0.601     0.594     0.598      1247
+    Surprise      0.835     0.838     0.836       831
+     Neutral      0.660     0.710     0.684      1233
+
+    accuracy                          0.723      7178
+   macro avg      0.729     0.705     0.715      7178
+weighted avg      0.724     0.723     0.723      7178
+
+2025-10-24 20:12:04,042 - INFO - 
+--- Training resnet50 on FER2013 (Batch: 128) ---
+2025-10-24 20:12:04,221 - INFO - Loading pre-trained model from saidas\saved_models\FER2013_resnet50.pth
+2025-10-24 20:12:21,485 - INFO - Using Test-Time Augmentation...
+2025-10-24 20:13:33,294 - INFO - resnet50 | Acc: 0.7136 | Acc (TTA): 0.7182
+2025-10-24 20:13:33,484 - INFO - Plot saved to: saidas\confusion_matrices\TTA\FER2013_resnet50_cm_TTA.pdf
+2025-10-24 20:13:33,797 - INFO - Plot saved to: saidas\error_analysis\FER2013_resnet50_error_analysis.pdf
+2025-10-24 20:13:33,798 - INFO - 
+============================================================
+2025-10-24 20:13:33,798 - INFO - ERROR ANALYSIS: Error Analysis: resnet50 on FER2013
+2025-10-24 20:13:33,798 - INFO - ============================================================
+2025-10-24 20:13:33,798 - INFO - Overall Accuracy: 71.82%
+2025-10-24 20:13:33,799 - INFO - Average Error Rate: 29.75%
+2025-10-24 20:13:33,799 - INFO - Best Class: Happy (89.29% acc)
+2025-10-24 20:13:33,799 - INFO - Worst Class: Fear (55.57% acc)
+2025-10-24 20:13:33,799 - INFO - 
+Top 5 Confusions:
+2025-10-24 20:13:33,799 - INFO -   1. Disgust → Angry: 18.9% (n=21)
+2025-10-24 20:13:33,800 - INFO -   2. Fear → Sad: 17.5% (n=179)
+2025-10-24 20:13:33,800 - INFO -   3. Sad → Neutral: 14.4% (n=180)
+2025-10-24 20:13:33,800 - INFO -   4. Neutral → Sad: 13.5% (n=166)
+2025-10-24 20:13:33,800 - INFO -   5. Angry → Sad: 11.1% (n=106)
+2025-10-24 20:13:33,805 - INFO - 
+              precision    recall  f1-score   support
+
+       Angry      0.623     0.676     0.649       958
+     Disgust      0.904     0.676     0.773       111
+        Fear      0.599     0.556     0.576      1024
+       Happy      0.890     0.893     0.892      1774
+         Sad      0.603     0.592     0.597      1247
+    Surprise      0.822     0.844     0.833       831
+     Neutral      0.673     0.681     0.677      1233
+
+    accuracy                          0.718      7178
+   macro avg      0.730     0.702     0.714      7178
+weighted avg      0.718     0.718     0.718      7178
+
+2025-10-24 20:13:33,815 - INFO - 
+--- Training efficientnet_b0 on FER2013 (Batch: 128) ---
+2025-10-24 20:13:33,847 - INFO - Loading pretrained weights from Hugging Face hub (timm/efficientnet_b0.ra_in1k)
+2025-10-24 20:13:34,167 - INFO - [timm/efficientnet_b0.ra_in1k] Safe alternative available for 'pytorch_model.bin' (as 'model.safetensors'). Loading weights using safetensors.
+2025-10-24 20:13:34,184 - INFO - Missing keys (classifier.weight, classifier.bias) discovered while loading pretrained weights. This is expected if model is being adapted.
+2025-10-24 20:13:34,195 - INFO - Loading pre-trained model from saidas\saved_models\FER2013_efficientnet_b0.pth
+2025-10-24 20:13:49,461 - INFO - Using Test-Time Augmentation...
+2025-10-24 20:14:57,774 - INFO - efficientnet_b0 | Acc: 0.7102 | Acc (TTA): 0.7172
+2025-10-24 20:14:57,974 - INFO - Plot saved to: saidas\confusion_matrices\TTA\FER2013_efficientnet_b0_cm_TTA.pdf
+2025-10-24 20:14:58,299 - INFO - Plot saved to: saidas\error_analysis\FER2013_efficientnet_b0_error_analysis.pdf
+2025-10-24 20:14:58,299 - INFO - 
+============================================================
+2025-10-24 20:14:58,300 - INFO - ERROR ANALYSIS: Error Analysis: efficientnet_b0 on FER2013
+2025-10-24 20:14:58,300 - INFO - ============================================================
+2025-10-24 20:14:58,300 - INFO - Overall Accuracy: 71.72%
+2025-10-24 20:14:58,300 - INFO - Average Error Rate: 29.69%
+2025-10-24 20:14:58,301 - INFO - Best Class: Happy (89.46% acc)
+2025-10-24 20:14:58,301 - INFO - Worst Class: Fear (53.61% acc)
+2025-10-24 20:14:58,301 - INFO - 
+Top 5 Confusions:
+2025-10-24 20:14:58,301 - INFO -   1. Disgust → Angry: 18.0% (n=20)
+2025-10-24 20:14:58,301 - INFO -   2. Fear → Sad: 17.6% (n=180)
+2025-10-24 20:14:58,302 - INFO -   3. Sad → Neutral: 17.5% (n=218)
+2025-10-24 20:14:58,302 - INFO -   4. Angry → Sad: 11.7% (n=112)
+2025-10-24 20:14:58,302 - INFO -   5. Neutral → Sad: 11.0% (n=136)
+2025-10-24 20:14:58,307 - INFO - 
+              precision    recall  f1-score   support
+
+       Angry      0.661     0.635     0.647       958
+     Disgust      0.918     0.703     0.796       111
+        Fear      0.614     0.536     0.572      1024
+       Happy      0.872     0.895     0.883      1774
+         Sad      0.600     0.582     0.591      1247
+    Surprise      0.833     0.840     0.836       831
+     Neutral      0.639     0.732     0.682      1233
+
+    accuracy                          0.717      7178
+   macro avg      0.734     0.703     0.716      7178
+weighted avg      0.716     0.717     0.715      7178
+
+2025-10-24 20:14:58,430 - INFO - 
+================================================================================
+2025-10-24 20:14:58,431 - INFO - PHASE 2: MERGED DATASET TRAINING
+2025-10-24 20:14:58,431 - INFO - ================================================================================
+2025-10-24 20:14:58,434 - INFO - Total combined training samples: 114414
+2025-10-24 20:14:58,437 - INFO - Balanceando dados com RandomOversampler...
+2025-10-24 20:14:58,444 - INFO - Distribuição de classes original: [(np.int64(0), 7637), (np.int64(1), 4349), (np.int64(2), 5248), (np.int64(3), 36417), (np.int64(4), 15259), (np.int64(5), 10109), (np.int64(6), 35395)]
+2025-10-24 20:14:58,504 - INFO - Distribuição de classes reamostrada: [(np.int64(0), 36417), (np.int64(1), 36417), (np.int64(2), 36417), (np.int64(3), 36417), (np.int64(4), 36417), (np.int64(5), 36417), (np.int64(6), 36417)]
+2025-10-24 20:14:58,671 - INFO - Plot saved to: saidas\class_distributions\merged_train_distribution.pdf
+2025-10-24 20:14:58,671 - INFO - 
+--- Training densenet121 on MERGED dataset (Batch: 96) ---
+2025-10-24 20:14:58,777 - INFO - Loading pre-trained merged model from saidas\saved_models\merged_densenet121.pth
+2025-10-24 20:15:13,973 - INFO - Using Test-Time Augmentation...
+2025-10-24 20:15:53,025 - INFO - densenet121 on RAF-DB | Acc: 0.8455 | Acc (TTA): 0.8527
+2025-10-24 20:15:53,223 - INFO - Plot saved to: saidas\confusion_matrices\TTA\merged_densenet121_RAF-DB_cm_TTA.pdf
+2025-10-24 20:15:53,526 - INFO - Plot saved to: saidas\error_analysis\merged_densenet121_RAF-DB_error_analysis.pdf
+2025-10-24 20:15:53,526 - INFO - 
+============================================================
+2025-10-24 20:15:53,527 - INFO - ERROR ANALYSIS: Error Analysis: densenet121 (Merged) on RAF-DB
+2025-10-24 20:15:53,527 - INFO - ============================================================
+2025-10-24 20:15:53,528 - INFO - Overall Accuracy: 85.27%
+2025-10-24 20:15:53,528 - INFO - Average Error Rate: 23.05%
+2025-10-24 20:15:53,528 - INFO - Best Class: Happy (94.01% acc)
+2025-10-24 20:15:53,528 - INFO - Worst Class: Disgust (56.25% acc)
+2025-10-24 20:15:53,529 - INFO - 
+Top 5 Confusions:
+2025-10-24 20:15:53,529 - INFO -   1. Fear → Surprise: 17.6% (n=13)
+2025-10-24 20:15:53,530 - INFO -   2. Disgust → Neutral: 13.8% (n=22)
+2025-10-24 20:15:53,530 - INFO -   3. Disgust → Sad: 13.1% (n=21)
+2025-10-24 20:15:53,530 - INFO -   4. Disgust → Angry: 8.1% (n=13)
+2025-10-24 20:15:53,531 - INFO -   5. Neutral → Sad: 7.9% (n=54)
+2025-10-24 20:15:53,535 - INFO - 
+              precision    recall  f1-score   support
+
+       Angry      0.778     0.802     0.790       162
+     Disgust      0.652     0.562     0.604       160
+        Fear      0.796     0.581     0.672        74
+       Happy      0.929     0.940     0.935      1185
+         Sad      0.798     0.841     0.819       478
+    Surprise      0.853     0.830     0.841       329
+     Neutral      0.822     0.829     0.826       680
+
+    accuracy                          0.853      3068
+   macro avg      0.804     0.769     0.784      3068
+weighted avg      0.851     0.853     0.851      3068
+
+2025-10-24 20:16:18,258 - INFO - Using Test-Time Augmentation...
+2025-10-24 20:19:02,155 - INFO - densenet121 on ExpW | Acc: 0.7036 | Acc (TTA): 0.7101
+2025-10-24 20:19:02,385 - INFO - Plot saved to: saidas\confusion_matrices\TTA\merged_densenet121_ExpW_cm_TTA.pdf
+2025-10-24 20:19:02,710 - INFO - Plot saved to: saidas\error_analysis\merged_densenet121_ExpW_error_analysis.pdf
+2025-10-24 20:19:02,711 - INFO - 
+============================================================
+2025-10-24 20:19:02,712 - INFO - ERROR ANALYSIS: Error Analysis: densenet121 (Merged) on ExpW
+2025-10-24 20:19:02,712 - INFO - ============================================================
+2025-10-24 20:19:02,712 - INFO - Overall Accuracy: 71.01%
+2025-10-24 20:19:02,713 - INFO - Average Error Rate: 48.69%
+2025-10-24 20:19:02,713 - INFO - Best Class: Happy (84.64% acc)
+2025-10-24 20:19:02,713 - INFO - Worst Class: Fear (16.06% acc)
+2025-10-24 20:19:02,713 - INFO - 
+Top 5 Confusions:
+2025-10-24 20:19:02,713 - INFO -   1. Disgust → Neutral: 53.6% (n=428)
+2025-10-24 20:19:02,714 - INFO -   2. Fear → Surprise: 39.0% (n=85)
+2025-10-24 20:19:02,714 - INFO -   3. Sad → Neutral: 29.9% (n=631)
+2025-10-24 20:19:02,714 - INFO -   4. Fear → Angry: 17.4% (n=38)
+2025-10-24 20:19:02,714 - INFO -   5. Angry → Neutral: 17.3% (n=127)
+2025-10-24 20:19:02,723 - INFO - 
+              precision    recall  f1-score   support
+
+       Angry      0.514     0.512     0.513       734
+     Disgust      0.289     0.165     0.210       799
+        Fear      0.324     0.161     0.215       218
+       Happy      0.850     0.846     0.848      6107
+         Sad      0.532     0.543     0.537      2112
+    Surprise      0.587     0.600     0.594      1412
+     Neutral      0.722     0.764     0.742      6977
+
+    accuracy                          0.710     18359
+   macro avg      0.546     0.513     0.523     18359
+weighted avg      0.700     0.710     0.704     18359
+
+2025-10-24 20:19:20,364 - INFO - Using Test-Time Augmentation...
+2025-10-24 20:20:34,518 - INFO - densenet121 on FER2013 | Acc: 0.7091 | Acc (TTA): 0.7097
+2025-10-24 20:20:34,730 - INFO - Plot saved to: saidas\confusion_matrices\TTA\merged_densenet121_FER2013_cm_TTA.pdf
+2025-10-24 20:20:35,046 - INFO - Plot saved to: saidas\error_analysis\merged_densenet121_FER2013_error_analysis.pdf
+2025-10-24 20:20:35,047 - INFO - 
+============================================================
+2025-10-24 20:20:35,047 - INFO - ERROR ANALYSIS: Error Analysis: densenet121 (Merged) on FER2013
+2025-10-24 20:20:35,047 - INFO - ============================================================
+2025-10-24 20:20:35,047 - INFO - Overall Accuracy: 70.97%
+2025-10-24 20:20:35,048 - INFO - Average Error Rate: 30.42%
+2025-10-24 20:20:35,048 - INFO - Best Class: Happy (90.76% acc)
+2025-10-24 20:20:35,048 - INFO - Worst Class: Fear (51.37% acc)
+2025-10-24 20:20:35,048 - INFO - 
+Top 5 Confusions:
+2025-10-24 20:20:35,048 - INFO -   1. Fear → Sad: 19.5% (n=200)
+2025-10-24 20:20:35,048 - INFO -   2. Neutral → Sad: 18.7% (n=230)
+2025-10-24 20:20:35,049 - INFO -   3. Disgust → Angry: 18.0% (n=20)
+2025-10-24 20:20:35,049 - INFO -   4. Sad → Neutral: 14.0% (n=174)
+2025-10-24 20:20:35,049 - INFO -   5. Fear → Angry: 12.1% (n=124)
+2025-10-24 20:20:35,055 - INFO - 
+              precision    recall  f1-score   support
+
+       Angry      0.615     0.682     0.647       958
+     Disgust      0.837     0.694     0.759       111
+        Fear      0.630     0.514     0.566      1024
+       Happy      0.880     0.908     0.894      1774
+         Sad      0.566     0.621     0.592      1247
+    Surprise      0.829     0.840     0.834       831
+     Neutral      0.658     0.612     0.634      1233
+
+    accuracy                          0.710      7178
+   macro avg      0.716     0.696     0.704      7178
+weighted avg      0.710     0.710     0.708      7178
+
+2025-10-24 20:20:35,158 - INFO - 
+--- Training resnet50 on MERGED dataset (Batch: 128) ---
+2025-10-24 20:20:35,342 - INFO - Loading pre-trained merged model from saidas\saved_models\merged_resnet50.pth
+2025-10-24 20:20:50,141 - INFO - Using Test-Time Augmentation...
+2025-10-24 20:21:28,310 - INFO - resnet50 on RAF-DB | Acc: 0.8504 | Acc (TTA): 0.8563
+2025-10-24 20:21:28,526 - INFO - Plot saved to: saidas\confusion_matrices\TTA\merged_resnet50_RAF-DB_cm_TTA.pdf
+2025-10-24 20:21:28,838 - INFO - Plot saved to: saidas\error_analysis\merged_resnet50_RAF-DB_error_analysis.pdf
+2025-10-24 20:21:28,838 - INFO - 
+============================================================
+2025-10-24 20:21:28,838 - INFO - ERROR ANALYSIS: Error Analysis: resnet50 (Merged) on RAF-DB
+2025-10-24 20:21:28,838 - INFO - ============================================================
+2025-10-24 20:21:28,838 - INFO - Overall Accuracy: 85.63%
+2025-10-24 20:21:28,839 - INFO - Average Error Rate: 23.06%
+2025-10-24 20:21:28,839 - INFO - Best Class: Happy (93.08% acc)
+2025-10-24 20:21:28,839 - INFO - Worst Class: Disgust (48.12% acc)
+2025-10-24 20:21:28,839 - INFO - 
+Top 5 Confusions:
+2025-10-24 20:21:28,839 - INFO -   1. Disgust → Neutral: 18.8% (n=30)
+2025-10-24 20:21:28,839 - INFO -   2. Disgust → Sad: 11.2% (n=18)
+2025-10-24 20:21:28,839 - INFO -   3. Fear → Surprise: 10.8% (n=8)
+2025-10-24 20:21:28,839 - INFO -   4. Disgust → Angry: 10.0% (n=16)
+2025-10-24 20:21:28,839 - INFO -   5. Fear → Sad: 9.5% (n=7)
+2025-10-24 20:21:28,844 - INFO - 
+              precision    recall  f1-score   support
+
+       Angry      0.805     0.790     0.798       162
+     Disgust      0.664     0.481     0.558       160
+        Fear      0.652     0.608     0.629        74
+       Happy      0.936     0.931     0.934      1185
+         Sad      0.819     0.841     0.830       478
+    Surprise      0.878     0.875     0.877       329
+     Neutral      0.803     0.859     0.830       680
+
+    accuracy                          0.856      3068
+   macro avg      0.794     0.769     0.779      3068
+weighted avg      0.854     0.856     0.854      3068
+
+2025-10-24 20:21:52,099 - INFO - Using Test-Time Augmentation...
+2025-10-24 20:24:36,703 - INFO - resnet50 on ExpW | Acc: 0.7087 | Acc (TTA): 0.7154
+2025-10-24 20:24:36,933 - INFO - Plot saved to: saidas\confusion_matrices\TTA\merged_resnet50_ExpW_cm_TTA.pdf
+2025-10-24 20:24:37,259 - INFO - Plot saved to: saidas\error_analysis\merged_resnet50_ExpW_error_analysis.pdf
+2025-10-24 20:24:37,260 - INFO - 
+============================================================
+2025-10-24 20:24:37,260 - INFO - ERROR ANALYSIS: Error Analysis: resnet50 (Merged) on ExpW
+2025-10-24 20:24:37,260 - INFO - ============================================================
+2025-10-24 20:24:37,260 - INFO - Overall Accuracy: 71.54%
+2025-10-24 20:24:37,260 - INFO - Average Error Rate: 49.62%
+2025-10-24 20:24:37,261 - INFO - Best Class: Happy (84.43% acc)
+2025-10-24 20:24:37,261 - INFO - Worst Class: Disgust (14.64% acc)
+2025-10-24 20:24:37,261 - INFO - 
+Top 5 Confusions:
+2025-10-24 20:24:37,262 - INFO -   1. Disgust → Neutral: 58.9% (n=471)
+2025-10-24 20:24:37,262 - INFO -   2. Fear → Surprise: 39.0% (n=85)
+2025-10-24 20:24:37,262 - INFO -   3. Sad → Neutral: 35.7% (n=755)
+2025-10-24 20:24:37,262 - INFO -   4. Angry → Neutral: 22.5% (n=165)
+2025-10-24 20:24:37,262 - INFO -   5. Surprise → Neutral: 18.3% (n=258)
+2025-10-24 20:24:37,271 - INFO - 
+              precision    recall  f1-score   support
+
+       Angry      0.580     0.490     0.531       734
+     Disgust      0.320     0.146     0.201       799
+        Fear      0.325     0.179     0.231       218
+       Happy      0.833     0.844     0.839      6107
+         Sad      0.593     0.475     0.528      2112
+    Surprise      0.628     0.584     0.605      1412
+     Neutral      0.699     0.808     0.749      6977
+
+    accuracy                          0.715     18359
+   macro avg      0.568     0.504     0.526     18359
+weighted avg      0.700     0.715     0.704     18359
+
+2025-10-24 20:24:54,473 - INFO - Using Test-Time Augmentation...
+2025-10-24 20:26:06,107 - INFO - resnet50 on FER2013 | Acc: 0.7133 | Acc (TTA): 0.7210
+2025-10-24 20:26:06,321 - INFO - Plot saved to: saidas\confusion_matrices\TTA\merged_resnet50_FER2013_cm_TTA.pdf
+2025-10-24 20:26:06,639 - INFO - Plot saved to: saidas\error_analysis\merged_resnet50_FER2013_error_analysis.pdf
+2025-10-24 20:26:06,640 - INFO - 
+============================================================
+2025-10-24 20:26:06,640 - INFO - ERROR ANALYSIS: Error Analysis: resnet50 (Merged) on FER2013
+2025-10-24 20:26:06,640 - INFO - ============================================================
+2025-10-24 20:26:06,640 - INFO - Overall Accuracy: 72.10%
+2025-10-24 20:26:06,641 - INFO - Average Error Rate: 29.13%
+2025-10-24 20:26:06,641 - INFO - Best Class: Happy (90.36% acc)
+2025-10-24 20:26:06,641 - INFO - Worst Class: Fear (56.74% acc)
+2025-10-24 20:26:06,641 - INFO - 
+Top 5 Confusions:
+2025-10-24 20:26:06,641 - INFO -   1. Fear → Sad: 16.0% (n=164)
+2025-10-24 20:26:06,641 - INFO -   2. Sad → Neutral: 15.2% (n=190)
+2025-10-24 20:26:06,641 - INFO -   3. Neutral → Sad: 14.7% (n=181)
+2025-10-24 20:26:06,642 - INFO -   4. Angry → Sad: 13.9% (n=133)
+2025-10-24 20:26:06,642 - INFO -   5. Disgust → Angry: 13.5% (n=15)
+2025-10-24 20:26:06,648 - INFO - 
+              precision    recall  f1-score   support
+
+       Angry      0.656     0.634     0.644       958
+     Disgust      0.851     0.721     0.780       111
+        Fear      0.620     0.567     0.593      1024
+       Happy      0.898     0.904     0.901      1774
+         Sad      0.594     0.618     0.606      1247
+    Surprise      0.824     0.841     0.833       831
+     Neutral      0.647     0.676     0.661      1233
+
+    accuracy                          0.721      7178
+   macro avg      0.727     0.709     0.717      7178
+weighted avg      0.721     0.721     0.720      7178
+
+2025-10-24 20:26:06,754 - INFO - 
+--- Training efficientnet_b0 on MERGED dataset (Batch: 128) ---
+2025-10-24 20:26:06,782 - INFO - Loading pretrained weights from Hugging Face hub (timm/efficientnet_b0.ra_in1k)
+2025-10-24 20:26:07,099 - INFO - [timm/efficientnet_b0.ra_in1k] Safe alternative available for 'pytorch_model.bin' (as 'model.safetensors'). Loading weights using safetensors.
+2025-10-24 20:26:07,118 - INFO - Missing keys (classifier.weight, classifier.bias) discovered while loading pretrained weights. This is expected if model is being adapted.
+2025-10-24 20:26:07,130 - INFO - Loading pre-trained merged model from saidas\saved_models\merged_efficientnet_b0.pth
+2025-10-24 20:26:21,138 - INFO - Using Test-Time Augmentation...
+2025-10-24 20:26:56,526 - INFO - efficientnet_b0 on RAF-DB | Acc: 0.8510 | Acc (TTA): 0.8615
+2025-10-24 20:26:56,722 - INFO - Plot saved to: saidas\confusion_matrices\TTA\merged_efficientnet_b0_RAF-DB_cm_TTA.pdf
+2025-10-24 20:26:57,035 - INFO - Plot saved to: saidas\error_analysis\merged_efficientnet_b0_RAF-DB_error_analysis.pdf
+2025-10-24 20:26:57,035 - INFO - 
+============================================================
+2025-10-24 20:26:57,035 - INFO - ERROR ANALYSIS: Error Analysis: efficientnet_b0 (Merged) on RAF-DB
+2025-10-24 20:26:57,035 - INFO - ============================================================
+2025-10-24 20:26:57,036 - INFO - Overall Accuracy: 86.15%
+2025-10-24 20:26:57,036 - INFO - Average Error Rate: 22.82%
+2025-10-24 20:26:57,036 - INFO - Best Class: Happy (92.83% acc)
+2025-10-24 20:26:57,036 - INFO - Worst Class: Disgust (56.25% acc)
+2025-10-24 20:26:57,036 - INFO - 
+Top 5 Confusions:
+2025-10-24 20:26:57,036 - INFO -   1. Disgust → Neutral: 18.1% (n=29)
+2025-10-24 20:26:57,036 - INFO -   2. Fear → Surprise: 17.6% (n=13)
+2025-10-24 20:26:57,036 - INFO -   3. Sad → Neutral: 10.0% (n=48)
+2025-10-24 20:26:57,036 - INFO -   4. Disgust → Sad: 10.0% (n=16)
+2025-10-24 20:26:57,037 - INFO -   5. Disgust → Happy: 8.8% (n=14)
+2025-10-24 20:26:57,041 - INFO - 
+              precision    recall  f1-score   support
+
+       Angry      0.838     0.735     0.783       162
+     Disgust      0.720     0.562     0.632       160
+        Fear      0.759     0.595     0.667        74
+       Happy      0.942     0.928     0.935      1185
+         Sad      0.841     0.839     0.840       478
+    Surprise      0.883     0.845     0.863       329
+     Neutral      0.780     0.899     0.835       680
+
+    accuracy                          0.861      3068
+   macro avg      0.823     0.772     0.794      3068
+weighted avg      0.862     0.861     0.860      3068
+
+2025-10-24 20:27:15,602 - INFO - Using Test-Time Augmentation...
+2025-10-24 20:29:48,141 - INFO - efficientnet_b0 on ExpW | Acc: 0.7071 | Acc (TTA): 0.7111
+2025-10-24 20:29:48,494 - INFO - Plot saved to: saidas\confusion_matrices\TTA\merged_efficientnet_b0_ExpW_cm_TTA.pdf
+2025-10-24 20:29:49,118 - INFO - Plot saved to: saidas\error_analysis\merged_efficientnet_b0_ExpW_error_analysis.pdf
+2025-10-24 20:29:49,118 - INFO - 
+============================================================
+2025-10-24 20:29:49,119 - INFO - ERROR ANALYSIS: Error Analysis: efficientnet_b0 (Merged) on ExpW
+2025-10-24 20:29:49,119 - INFO - ============================================================
+2025-10-24 20:29:49,120 - INFO - Overall Accuracy: 71.11%
+2025-10-24 20:29:49,120 - INFO - Average Error Rate: 51.61%
+2025-10-24 20:29:49,120 - INFO - Best Class: Happy (85.34% acc)
+2025-10-24 20:29:49,120 - INFO - Worst Class: Disgust (11.89% acc)
+2025-10-24 20:29:49,121 - INFO - 
+Top 5 Confusions:
+2025-10-24 20:29:49,121 - INFO -   1. Disgust → Neutral: 60.8% (n=486)
+2025-10-24 20:29:49,121 - INFO -   2. Sad → Neutral: 38.2% (n=807)
+2025-10-24 20:29:49,121 - INFO -   3. Fear → Surprise: 37.2% (n=81)
+2025-10-24 20:29:49,121 - INFO -   4. Angry → Neutral: 24.3% (n=178)
+2025-10-24 20:29:49,122 - INFO -   5. Surprise → Neutral: 20.8% (n=293)
+2025-10-24 20:29:49,137 - INFO - 
+              precision    recall  f1-score   support
+
+       Angry      0.559     0.458     0.503       734
+     Disgust      0.330     0.119     0.175       799
+        Fear      0.315     0.156     0.209       218
+       Happy      0.809     0.853     0.831      6107
+         Sad      0.614     0.450     0.519      2112
+    Surprise      0.640     0.539     0.585      1412
+     Neutral      0.692     0.812     0.748      6977
+
+    accuracy                          0.711     18359
+   macro avg      0.566     0.484     0.510     18359
+weighted avg      0.693     0.711     0.695     18359
+
+2025-10-24 20:30:12,958 - INFO - Using Test-Time Augmentation...
+2025-10-24 20:31:14,812 - INFO - efficientnet_b0 on FER2013 | Acc: 0.7164 | Acc (TTA): 0.7173
+2025-10-24 20:31:15,000 - INFO - Plot saved to: saidas\confusion_matrices\TTA\merged_efficientnet_b0_FER2013_cm_TTA.pdf
+2025-10-24 20:31:15,327 - INFO - Plot saved to: saidas\error_analysis\merged_efficientnet_b0_FER2013_error_analysis.pdf
+2025-10-24 20:31:15,327 - INFO - 
+============================================================
+2025-10-24 20:31:15,327 - INFO - ERROR ANALYSIS: Error Analysis: efficientnet_b0 (Merged) on FER2013
+2025-10-24 20:31:15,328 - INFO - ============================================================
+2025-10-24 20:31:15,328 - INFO - Overall Accuracy: 71.73%
+2025-10-24 20:31:15,328 - INFO - Average Error Rate: 30.00%
+2025-10-24 20:31:15,328 - INFO - Best Class: Happy (89.57% acc)
+2025-10-24 20:31:15,328 - INFO - Worst Class: Fear (55.08% acc)
+2025-10-24 20:31:15,328 - INFO - 
+Top 5 Confusions:
+2025-10-24 20:31:15,328 - INFO -   1. Sad → Neutral: 20.9% (n=260)
+2025-10-24 20:31:15,329 - INFO -   2. Disgust → Angry: 19.8% (n=22)
+2025-10-24 20:31:15,329 - INFO -   3. Fear → Sad: 15.3% (n=157)
+2025-10-24 20:31:15,329 - INFO -   4. Angry → Neutral: 12.3% (n=118)
+2025-10-24 20:31:15,329 - INFO -   5. Fear → Neutral: 10.5% (n=108)
+2025-10-24 20:31:15,334 - INFO - 
+              precision    recall  f1-score   support
+
+       Angry      0.655     0.629     0.642       958
+     Disgust      0.862     0.676     0.758       111
+        Fear      0.623     0.551     0.584      1024
+       Happy      0.887     0.896     0.891      1774
+         Sad      0.628     0.557     0.590      1247
+    Surprise      0.830     0.842     0.836       831
+     Neutral      0.606     0.749     0.670      1233
+
+    accuracy                          0.717      7178
+   macro avg      0.727     0.700     0.710      7178
+weighted avg      0.718     0.717     0.716      7178
+
+2025-10-24 20:31:15,439 - INFO - 
+================================================================================
+2025-10-24 20:31:15,440 - INFO - PHASE 3: CROSS-DATASET EVALUATION
+2025-10-24 20:31:15,441 - INFO - ================================================================================
+2025-10-24 20:31:15,441 - INFO - 
+--- Cross-Dataset: Individual Training ---
+2025-10-24 20:31:15,441 - INFO - 
+Evaluating models trained on RAF-DB, tested on RAF-DB...
+2025-10-24 20:31:29,394 - INFO -   densenet121: 0.8608
+2025-10-24 20:31:43,122 - INFO -   resnet50: 0.8677
+2025-10-24 20:31:55,963 - INFO -   efficientnet_b0: 0.8517
+2025-10-24 20:31:56,055 - INFO - 
+Evaluating models trained on RAF-DB, tested on ExpW...
+2025-10-24 20:32:19,247 - INFO -   densenet121: 0.5829
+2025-10-24 20:32:41,230 - INFO -   resnet50: 0.5811
+2025-10-24 20:32:58,228 - INFO -   efficientnet_b0: 0.5627
+2025-10-24 20:32:58,320 - INFO - 
+Evaluating models trained on RAF-DB, tested on FER2013...
+2025-10-24 20:33:14,677 - INFO -   densenet121: 0.5369
+2025-10-24 20:33:30,550 - INFO -   resnet50: 0.5290
+2025-10-24 20:33:44,500 - INFO -   efficientnet_b0: 0.5242
+2025-10-24 20:33:44,592 - INFO - 
+Evaluating models trained on ExpW, tested on RAF-DB...
+2025-10-24 20:33:58,443 - INFO -   densenet121: 0.7106
+2025-10-24 20:34:12,064 - INFO -   resnet50: 0.6975
+2025-10-24 20:34:24,871 - INFO -   efficientnet_b0: 0.6962
+2025-10-24 20:34:24,963 - INFO - 
+Evaluating models trained on ExpW, tested on ExpW...
+2025-10-24 20:34:48,271 - INFO -   densenet121: 0.7050
+2025-10-24 20:35:10,258 - INFO -   resnet50: 0.7106
+2025-10-24 20:35:27,224 - INFO -   efficientnet_b0: 0.7086
+2025-10-24 20:35:27,317 - INFO - 
+Evaluating models trained on ExpW, tested on FER2013...
+2025-10-24 20:35:43,668 - INFO -   densenet121: 0.5330
+2025-10-24 20:35:59,520 - INFO -   resnet50: 0.5149
+2025-10-24 20:36:13,445 - INFO -   efficientnet_b0: 0.5199
+2025-10-24 20:36:13,540 - INFO - 
+Evaluating models trained on FER2013, tested on RAF-DB...
+2025-10-24 20:36:27,424 - INFO -   densenet121: 0.6063
+2025-10-24 20:36:41,111 - INFO -   resnet50: 0.6001
+2025-10-24 20:36:54,006 - INFO -   efficientnet_b0: 0.6098
+2025-10-24 20:36:54,101 - INFO - 
+Evaluating models trained on FER2013, tested on ExpW...
+2025-10-24 20:37:17,406 - INFO -   densenet121: 0.4939
+2025-10-24 20:37:39,495 - INFO -   resnet50: 0.4878
+2025-10-24 20:37:56,402 - INFO -   efficientnet_b0: 0.5086
+2025-10-24 20:37:56,499 - INFO - 
+Evaluating models trained on FER2013, tested on FER2013...
+2025-10-24 20:38:12,939 - INFO -   densenet121: 0.7140
+2025-10-24 20:38:28,929 - INFO -   resnet50: 0.7136
+2025-10-24 20:38:42,933 - INFO -   efficientnet_b0: 0.7102
+2025-10-24 20:38:43,024 - INFO - 
+--- Cross-Dataset: Merged Training ---
+2025-10-24 20:38:43,025 - INFO - 
+Evaluating merged models on RAF-DB...
+2025-10-24 20:38:56,931 - INFO -   densenet121: 0.8455
+2025-10-24 20:39:10,627 - INFO -   resnet50: 0.8504
+2025-10-24 20:39:23,493 - INFO -   efficientnet_b0: 0.8510
+2025-10-24 20:39:23,584 - INFO - 
+Evaluating merged models on ExpW...
+2025-10-24 20:39:46,839 - INFO -   densenet121: 0.7036
+2025-10-24 20:40:08,849 - INFO -   resnet50: 0.7087
+2025-10-24 20:40:25,750 - INFO -   efficientnet_b0: 0.7071
+2025-10-24 20:40:25,841 - INFO - 
+Evaluating merged models on FER2013...
+2025-10-24 20:40:42,226 - INFO -   densenet121: 0.7091
+2025-10-24 20:40:58,177 - INFO -   resnet50: 0.7133
+2025-10-24 20:41:12,339 - INFO -   efficientnet_b0: 0.7164
+2025-10-24 20:41:12,822 - INFO - Plot saved to: saidas\cross_dataset\cross_dataset_individual.pdf
+2025-10-24 20:41:13,189 - INFO - Plot saved to: saidas\cross_dataset\cross_dataset_merged.pdf
+2025-10-24 20:41:13,189 - INFO - 
+================================================================================
+2025-10-24 20:41:13,190 - INFO - PHASE 4: ENSEMBLE EVALUATION
+2025-10-24 20:41:13,190 - INFO - ================================================================================
+2025-10-24 20:41:13,190 - INFO - 
+--- Ensemble: Individual Training ---
+2025-10-24 20:41:13,190 - INFO - 
+Evaluating ensemble for RAF-DB (individual training)...
+2025-10-24 20:41:53,436 - INFO - Ensemble Accuracy on RAF-DB: 0.8827
+2025-10-24 20:41:53,617 - INFO - Plot saved to: saidas\ensemble_results\ensemble_individual_RAF-DB_cm.pdf
+2025-10-24 20:41:53,929 - INFO - Plot saved to: saidas\ensemble_results\ensemble_individual_RAF-DB_error.pdf
+2025-10-24 20:41:53,929 - INFO - 
+============================================================
+2025-10-24 20:41:53,929 - INFO - ERROR ANALYSIS: Ensemble Error Analysis: RAF-DB (Individual Training)
+2025-10-24 20:41:53,929 - INFO - ============================================================
+2025-10-24 20:41:53,929 - INFO - Overall Accuracy: 88.27%
+2025-10-24 20:41:53,930 - INFO - Average Error Rate: 20.31%
+2025-10-24 20:41:53,930 - INFO - Best Class: Happy (94.85% acc)
+2025-10-24 20:41:53,930 - INFO - Worst Class: Fear (56.76% acc)
+2025-10-24 20:41:53,930 - INFO - 
+Top 5 Confusions:
+2025-10-24 20:41:53,930 - INFO -   1. Fear → Surprise: 20.3% (n=15)
+2025-10-24 20:41:53,930 - INFO -   2. Disgust → Sad: 12.5% (n=20)
+2025-10-24 20:41:53,930 - INFO -   3. Disgust → Neutral: 12.5% (n=20)
+2025-10-24 20:41:53,930 - INFO -   4. Fear → Sad: 12.2% (n=9)
+2025-10-24 20:41:53,930 - INFO -   5. Disgust → Angry: 6.9% (n=11)
+2025-10-24 20:41:53,934 - INFO - 
+              precision    recall  f1-score   support
+
+       Angry      0.855     0.802     0.828       162
+     Disgust      0.762     0.600     0.671       160
+        Fear      0.913     0.568     0.700        74
+       Happy      0.951     0.949     0.950      1185
+         Sad      0.829     0.891     0.859       478
+    Surprise      0.859     0.891     0.875       329
+     Neutral      0.844     0.878     0.861       680
+
+    accuracy                          0.883      3068
+   macro avg      0.859     0.797     0.820      3068
+weighted avg      0.883     0.883     0.881      3068
+
+2025-10-24 20:41:54,041 - INFO - 
+Evaluating ensemble for ExpW (individual training)...
+2025-10-24 20:42:56,191 - INFO - Ensemble Accuracy on ExpW: 0.7288
+2025-10-24 20:42:56,379 - INFO - Plot saved to: saidas\ensemble_results\ensemble_individual_ExpW_cm.pdf
+2025-10-24 20:42:56,696 - INFO - Plot saved to: saidas\ensemble_results\ensemble_individual_ExpW_error.pdf
+2025-10-24 20:42:56,696 - INFO - 
+============================================================
+2025-10-24 20:42:56,697 - INFO - ERROR ANALYSIS: Ensemble Error Analysis: ExpW (Individual Training)
+2025-10-24 20:42:56,697 - INFO - ============================================================
+2025-10-24 20:42:56,697 - INFO - Overall Accuracy: 72.88%
+2025-10-24 20:42:56,698 - INFO - Average Error Rate: 51.79%
+2025-10-24 20:42:56,698 - INFO - Best Class: Neutral (86.90% acc)
+2025-10-24 20:42:56,698 - INFO - Worst Class: Fear (10.09% acc)
+2025-10-24 20:42:56,698 - INFO - 
+Top 5 Confusions:
+2025-10-24 20:42:56,698 - INFO -   1. Disgust → Neutral: 67.3% (n=538)
+2025-10-24 20:42:56,698 - INFO -   2. Sad → Neutral: 43.5% (n=919)
+2025-10-24 20:42:56,698 - INFO -   3. Fear → Surprise: 41.3% (n=90)
+2025-10-24 20:42:56,699 - INFO -   4. Angry → Neutral: 27.5% (n=202)
+2025-10-24 20:42:56,699 - INFO -   5. Surprise → Neutral: 22.2% (n=313)
+2025-10-24 20:42:56,706 - INFO - 
+              precision    recall  f1-score   support
+
+       Angry      0.613     0.439     0.512       734
+     Disgust      0.524     0.109     0.180       799
+        Fear      0.458     0.101     0.165       218
+       Happy      0.843     0.843     0.843      6107
+         Sad      0.676     0.437     0.531      2112
+    Surprise      0.639     0.577     0.606      1412
+     Neutral      0.684     0.869     0.765      6977
+
+    accuracy                          0.729     18359
+   macro avg      0.634     0.482     0.515     18359
+weighted avg      0.720     0.729     0.709     18359
+
+2025-10-24 20:42:56,805 - INFO - 
+Evaluating ensemble for FER2013 (individual training)...
+2025-10-24 20:43:43,016 - INFO - Ensemble Accuracy on FER2013: 0.7392
+2025-10-24 20:43:43,198 - INFO - Plot saved to: saidas\ensemble_results\ensemble_individual_FER2013_cm.pdf
+2025-10-24 20:43:43,504 - INFO - Plot saved to: saidas\ensemble_results\ensemble_individual_FER2013_error.pdf
+2025-10-24 20:43:43,504 - INFO - 
+============================================================
+2025-10-24 20:43:43,505 - INFO - ERROR ANALYSIS: Ensemble Error Analysis: FER2013 (Individual Training)
+2025-10-24 20:43:43,505 - INFO - ============================================================
+2025-10-24 20:43:43,505 - INFO - Overall Accuracy: 73.92%
+2025-10-24 20:43:43,505 - INFO - Average Error Rate: 28.37%
+2025-10-24 20:43:43,505 - INFO - Best Class: Happy (90.87% acc)
+2025-10-24 20:43:43,506 - INFO - Worst Class: Fear (57.71% acc)
+2025-10-24 20:43:43,506 - INFO - 
+Top 5 Confusions:
+2025-10-24 20:43:43,506 - INFO -   1. Disgust → Angry: 21.6% (n=24)
+2025-10-24 20:43:43,506 - INFO -   2. Fear → Sad: 17.0% (n=174)
+2025-10-24 20:43:43,506 - INFO -   3. Sad → Neutral: 15.8% (n=197)
+2025-10-24 20:43:43,506 - INFO -   4. Neutral → Sad: 11.7% (n=144)
+2025-10-24 20:43:43,507 - INFO -   5. Angry → Sad: 11.5% (n=110)
+2025-10-24 20:43:43,511 - INFO - 
+              precision    recall  f1-score   support
+
+       Angry      0.669     0.685     0.677       958
+     Disgust      0.889     0.649     0.750       111
+        Fear      0.651     0.577     0.612      1024
+       Happy      0.898     0.909     0.903      1774
+         Sad      0.619     0.610     0.614      1247
+    Surprise      0.843     0.846     0.844       831
+     Neutral      0.675     0.739     0.706      1233
+
+    accuracy                          0.739      7178
+   macro avg      0.749     0.716     0.729      7178
+weighted avg      0.739     0.739     0.738      7178
+
+2025-10-24 20:43:43,607 - INFO - 
+--- Ensemble: Merged Training ---
+2025-10-24 20:43:43,607 - INFO - 
+Evaluating merged ensemble on RAF-DB...
+2025-10-24 20:44:23,968 - INFO - Merged Ensemble Accuracy on RAF-DB: 0.8869
+2025-10-24 20:44:24,148 - INFO - Plot saved to: saidas\ensemble_results\ensemble_merged_RAF-DB_cm.pdf
+2025-10-24 20:44:24,459 - INFO - Plot saved to: saidas\ensemble_results\ensemble_merged_RAF-DB_error.pdf
+2025-10-24 20:44:24,459 - INFO - 
+============================================================
+2025-10-24 20:44:24,459 - INFO - ERROR ANALYSIS: Ensemble Error Analysis: RAF-DB (Merged Training)
+2025-10-24 20:44:24,459 - INFO - ============================================================
+2025-10-24 20:44:24,460 - INFO - Overall Accuracy: 88.69%
+2025-10-24 20:44:24,460 - INFO - Average Error Rate: 20.18%
+2025-10-24 20:44:24,460 - INFO - Best Class: Happy (94.26% acc)
+2025-10-24 20:44:24,460 - INFO - Worst Class: Disgust (55.62% acc)
+2025-10-24 20:44:24,460 - INFO - 
+Top 5 Confusions:
+2025-10-24 20:44:24,461 - INFO -   1. Disgust → Neutral: 18.8% (n=30)
+2025-10-24 20:44:24,461 - INFO -   2. Fear → Surprise: 17.6% (n=13)
+2025-10-24 20:44:24,461 - INFO -   3. Disgust → Sad: 11.2% (n=18)
+2025-10-24 20:44:24,461 - INFO -   4. Fear → Sad: 9.5% (n=7)
+2025-10-24 20:44:24,461 - INFO -   5. Sad → Neutral: 6.9% (n=33)
+2025-10-24 20:44:24,465 - INFO - 
+              precision    recall  f1-score   support
+
+       Angry      0.878     0.796     0.835       162
+     Disgust      0.802     0.556     0.657       160
+        Fear      0.815     0.595     0.688        74
+       Happy      0.956     0.943     0.949      1185
+         Sad      0.843     0.900     0.870       478
+    Surprise      0.909     0.884     0.897       329
+     Neutral      0.819     0.913     0.864       680
+
+    accuracy                          0.887      3068
+   macro avg      0.860     0.798     0.823      3068
+weighted avg      0.888     0.887     0.885      3068
+
+2025-10-24 20:44:24,560 - INFO - 
+Evaluating merged ensemble on ExpW...
+2025-10-24 20:45:26,796 - INFO - Merged Ensemble Accuracy on ExpW: 0.7381
+2025-10-24 20:45:26,981 - INFO - Plot saved to: saidas\ensemble_results\ensemble_merged_ExpW_cm.pdf
+2025-10-24 20:45:27,293 - INFO - Plot saved to: saidas\ensemble_results\ensemble_merged_ExpW_error.pdf
+2025-10-24 20:45:27,294 - INFO - 
+============================================================
+2025-10-24 20:45:27,294 - INFO - ERROR ANALYSIS: Ensemble Error Analysis: ExpW (Merged Training)
+2025-10-24 20:45:27,294 - INFO - ============================================================
+2025-10-24 20:45:27,295 - INFO - Overall Accuracy: 73.81%
+2025-10-24 20:45:27,295 - INFO - Average Error Rate: 48.59%
+2025-10-24 20:45:27,295 - INFO - Best Class: Happy (86.43% acc)
+2025-10-24 20:45:27,295 - INFO - Worst Class: Disgust (13.14% acc)
+2025-10-24 20:45:27,295 - INFO - 
+Top 5 Confusions:
+2025-10-24 20:45:27,296 - INFO -   1. Disgust → Neutral: 61.3% (n=490)
+2025-10-24 20:45:27,296 - INFO -   2. Fear → Surprise: 39.9% (n=87)
+2025-10-24 20:45:27,296 - INFO -   3. Sad → Neutral: 36.4% (n=768)
+2025-10-24 20:45:27,296 - INFO -   4. Angry → Neutral: 22.9% (n=168)
+2025-10-24 20:45:27,296 - INFO -   5. Surprise → Neutral: 19.1% (n=270)
+2025-10-24 20:45:27,303 - INFO - 
+              precision    recall  f1-score   support
+
+       Angry      0.597     0.518     0.554       734
+     Disgust      0.417     0.131     0.200       799
+        Fear      0.402     0.161     0.230       218
+       Happy      0.844     0.864     0.854      6107
+         Sad      0.652     0.489     0.559      2112
+    Surprise      0.659     0.592     0.624      1412
+     Neutral      0.711     0.843     0.771      6977
+
+    accuracy                          0.738     18359
+   macro avg      0.612     0.514     0.542     18359
+weighted avg      0.723     0.738     0.723     18359
+
+2025-10-24 20:45:27,400 - INFO - 
+Evaluating merged ensemble on FER2013...
+2025-10-24 20:46:13,625 - INFO - Merged Ensemble Accuracy on FER2013: 0.7400
+2025-10-24 20:46:13,810 - INFO - Plot saved to: saidas\ensemble_results\ensemble_merged_FER2013_cm.pdf
+2025-10-24 20:46:14,120 - INFO - Plot saved to: saidas\ensemble_results\ensemble_merged_FER2013_error.pdf
+2025-10-24 20:46:14,120 - INFO - 
+============================================================
+2025-10-24 20:46:14,120 - INFO - ERROR ANALYSIS: Ensemble Error Analysis: FER2013 (Merged Training)
+2025-10-24 20:46:14,121 - INFO - ============================================================
+2025-10-24 20:46:14,121 - INFO - Overall Accuracy: 74.00%
+2025-10-24 20:46:14,121 - INFO - Average Error Rate: 27.89%
+2025-10-24 20:46:14,121 - INFO - Best Class: Happy (91.66% acc)
+2025-10-24 20:46:14,121 - INFO - Worst Class: Fear (54.98% acc)
+2025-10-24 20:46:14,121 - INFO - 
+Top 5 Confusions:
+2025-10-24 20:46:14,121 - INFO -   1. Disgust → Angry: 18.9% (n=21)
+2025-10-24 20:46:14,121 - INFO -   2. Fear → Sad: 16.7% (n=171)
+2025-10-24 20:46:14,121 - INFO -   3. Sad → Neutral: 16.0% (n=200)
+2025-10-24 20:46:14,122 - INFO -   4. Neutral → Sad: 13.2% (n=163)
+2025-10-24 20:46:14,122 - INFO -   5. Angry → Sad: 11.9% (n=114)
+2025-10-24 20:46:14,126 - INFO - 
+              precision    recall  f1-score   support
+
+       Angry      0.676     0.671     0.674       958
+     Disgust      0.951     0.694     0.802       111
+        Fear      0.669     0.550     0.603      1024
+       Happy      0.898     0.917     0.907      1774
+         Sad      0.617     0.634     0.626      1247
+    Surprise      0.843     0.844     0.843       831
+     Neutral      0.660     0.739     0.697      1233
+
+    accuracy                          0.740      7178
+   macro avg      0.759     0.721     0.736      7178
+weighted avg      0.740     0.740     0.739      7178
+
+2025-10-24 20:46:14,219 - INFO - 
+================================================================================
+2025-10-24 20:46:14,219 - INFO - GENERATING COMPREHENSIVE RESULTS
+2025-10-24 20:46:14,220 - INFO - ================================================================================
+2025-10-24 20:46:14,220 - INFO - 
+================================================================================
+2025-10-24 20:46:14,220 - INFO - SECTION 1: Individual Dataset Training Results
+2025-10-24 20:46:14,221 - INFO - ================================================================================
+2025-10-24 20:46:14,221 - INFO - 
+================================================================================
+2025-10-24 20:46:14,221 - INFO - SECTION 2: Merged Dataset Training Results
+2025-10-24 20:46:14,221 - INFO - ================================================================================
+2025-10-24 20:46:14,221 - INFO - 
+================================================================================
+2025-10-24 20:46:14,222 - INFO - SECTION 3: Ensemble Results (Individual Training)
+2025-10-24 20:46:14,222 - INFO - ================================================================================
+2025-10-24 20:46:14,222 - INFO - 
+================================================================================
+2025-10-24 20:46:14,222 - INFO - SECTION 4: Ensemble Results (Merged Training)
+2025-10-24 20:46:14,222 - INFO - ================================================================================
+2025-10-24 20:46:14,224 - INFO - Results table saved to: saidas\comprehensive_results.csv
+2025-10-24 20:46:14,224 - INFO - 
+================================================================================
+2025-10-24 20:46:14,225 - INFO - COMPREHENSIVE RESULTS TABLE
+2025-10-24 20:46:14,225 - INFO - ================================================================================
+
+2025-10-24 20:46:14,226 - INFO -                  Section Training Data                 Model Test Dataset Accuracy Accuracy (TTA)             Type
+  1. Individual Training        RAF-DB           densenet121       RAF-DB   0.8608         0.8703 Individual Model
+  1. Individual Training        RAF-DB              resnet50       RAF-DB   0.8677         0.8722 Individual Model
+  1. Individual Training        RAF-DB       efficientnet_b0       RAF-DB   0.8517         0.8592 Individual Model
+  1. Individual Training          ExpW           densenet121         ExpW   0.7050         0.7114 Individual Model
+  1. Individual Training          ExpW              resnet50         ExpW   0.7106         0.7171 Individual Model
+  1. Individual Training          ExpW       efficientnet_b0         ExpW   0.7086         0.7109 Individual Model
+  1. Individual Training       FER2013           densenet121      FER2013   0.7140         0.7230 Individual Model
+  1. Individual Training       FER2013              resnet50      FER2013   0.7136         0.7182 Individual Model
+  1. Individual Training       FER2013       efficientnet_b0      FER2013   0.7102         0.7172 Individual Model
+      2. Merged Training  ALL (Merged)           densenet121       RAF-DB   0.8455         0.8527     Merged Model
+      2. Merged Training  ALL (Merged)              resnet50       RAF-DB   0.8504         0.8563     Merged Model
+      2. Merged Training  ALL (Merged)       efficientnet_b0       RAF-DB   0.8510         0.8615     Merged Model
+      2. Merged Training  ALL (Merged)           densenet121         ExpW   0.7036         0.7101     Merged Model
+      2. Merged Training  ALL (Merged)              resnet50         ExpW   0.7087         0.7154     Merged Model
+      2. Merged Training  ALL (Merged)       efficientnet_b0         ExpW   0.7071         0.7111     Merged Model
+      2. Merged Training  ALL (Merged)           densenet121      FER2013   0.7091         0.7097     Merged Model
+      2. Merged Training  ALL (Merged)              resnet50      FER2013   0.7133         0.7210     Merged Model
+      2. Merged Training  ALL (Merged)       efficientnet_b0      FER2013   0.7164         0.7173     Merged Model
+3. Ensemble (Individual)        RAF-DB ENSEMBLE (All Models)       RAF-DB   0.8827              -         Ensemble
+3. Ensemble (Individual)          ExpW ENSEMBLE (All Models)         ExpW   0.7288              -         Ensemble
+3. Ensemble (Individual)       FER2013 ENSEMBLE (All Models)      FER2013   0.7392              -         Ensemble
+    4. Ensemble (Merged)  ALL (Merged) ENSEMBLE (All Models)       RAF-DB   0.8869              -         Ensemble
+    4. Ensemble (Merged)  ALL (Merged) ENSEMBLE (All Models)         ExpW   0.7381              -         Ensemble
+    4. Ensemble (Merged)  ALL (Merged) ENSEMBLE (All Models)      FER2013   0.7400              -         Ensemble
+2025-10-24 20:46:14,227 - INFO - 
+================================================================================
+2025-10-24 20:46:14,227 - INFO - EXECUTION COMPLETED SUCCESSFULLY
+2025-10-24 20:46:14,227 - INFO - ================================================================================
+2025-10-24 20:46:14,227 - INFO - All results saved to: saidas/

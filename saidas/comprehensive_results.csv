@@ -1,0 +1,25 @@
+Section,Training Data,Model,Test Dataset,Accuracy,Accuracy (TTA),Type
+1. Individual Training,RAF-DB,densenet121,RAF-DB,0.8608,0.8703,Individual Model
+1. Individual Training,RAF-DB,resnet50,RAF-DB,0.8677,0.8722,Individual Model
+1. Individual Training,RAF-DB,efficientnet_b0,RAF-DB,0.8517,0.8592,Individual Model
+1. Individual Training,ExpW,densenet121,ExpW,0.7050,0.7114,Individual Model
+1. Individual Training,ExpW,resnet50,ExpW,0.7106,0.7171,Individual Model
+1. Individual Training,ExpW,efficientnet_b0,ExpW,0.7086,0.7109,Individual Model
+1. Individual Training,FER2013,densenet121,FER2013,0.7140,0.7230,Individual Model
+1. Individual Training,FER2013,resnet50,FER2013,0.7136,0.7182,Individual Model
+1. Individual Training,FER2013,efficientnet_b0,FER2013,0.7102,0.7172,Individual Model
+2. Merged Training,ALL (Merged),densenet121,RAF-DB,0.8455,0.8527,Merged Model
+2. Merged Training,ALL (Merged),resnet50,RAF-DB,0.8504,0.8563,Merged Model
+2. Merged Training,ALL (Merged),efficientnet_b0,RAF-DB,0.8510,0.8615,Merged Model
+2. Merged Training,ALL (Merged),densenet121,ExpW,0.7036,0.7101,Merged Model
+2. Merged Training,ALL (Merged),resnet50,ExpW,0.7087,0.7154,Merged Model
+2. Merged Training,ALL (Merged),efficientnet_b0,ExpW,0.7071,0.7111,Merged Model
+2. Merged Training,ALL (Merged),densenet121,FER2013,0.7091,0.7097,Merged Model
+2. Merged Training,ALL (Merged),resnet50,FER2013,0.7133,0.7210,Merged Model
+2. Merged Training,ALL (Merged),efficientnet_b0,FER2013,0.7164,0.7173,Merged Model
+3. Ensemble (Individual),RAF-DB,ENSEMBLE (All Models),RAF-DB,0.8827,-,Ensemble
+3. Ensemble (Individual),ExpW,ENSEMBLE (All Models),ExpW,0.7288,-,Ensemble
+3. Ensemble (Individual),FER2013,ENSEMBLE (All Models),FER2013,0.7392,-,Ensemble
+4. Ensemble (Merged),ALL (Merged),ENSEMBLE (All Models),RAF-DB,0.8869,-,Ensemble
+4. Ensemble (Merged),ALL (Merged),ENSEMBLE (All Models),ExpW,0.7381,-,Ensemble
+4. Ensemble (Merged),ALL (Merged),ENSEMBLE (All Models),FER2013,0.7400,-,Ensemble
